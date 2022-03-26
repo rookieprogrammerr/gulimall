@@ -1,0 +1,15 @@
+server:
+  port: 11000
+
+spring:
+  application:
+    name: gulimall-ware
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 182.42.128.43:8848
+      config:
+        server-addr: 182.42.128.43:8848
+        file-extension: yml

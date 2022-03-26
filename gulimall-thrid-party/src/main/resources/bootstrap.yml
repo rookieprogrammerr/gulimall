@@ -1,0 +1,16 @@
+server:
+  port: 30000
+
+spring:
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 182.42.128.43:8848
+      config:
+        server-addr: 182.42.128.43:8848
+        ext-config[0]:
+          data-id: gulimall-third-party-${spring.profiles.active}.yml
+          group: DEFAULT_GROUP
+          refresh: true
