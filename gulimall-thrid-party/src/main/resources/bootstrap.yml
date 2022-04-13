@@ -2,6 +2,8 @@ server:
   port: 30000
 
 spring:
+  application:
+    name: gulimall-thrid-party
   profiles:
     active: dev
   cloud:
@@ -14,3 +16,4 @@ spring:
           data-id: gulimall-third-party-${spring.profiles.active}.yml
           group: DEFAULT_GROUP
           refresh: true
+

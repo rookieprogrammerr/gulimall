@@ -1,4 +1,4 @@
-package com.zc.gulimall.product.controller;
+package com.zc.gulimall.product.app;
 
 import com.zc.common.exception.RRException;
 import com.zc.common.utils.R;
