@@ -34,4 +34,11 @@ public class IndexController {
         Map<String, List<Catelog2Vo>> map = categoryService.getCatelogJson();
         return map;
     }
+
+
+    @ResponseBody
+    @GetMapping("/hello")
+    public String hello() {
+        return "hello";
+    }
 }
