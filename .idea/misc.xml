@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/gulimall-common/pom.xml" />
+        <option value="$PROJECT_DIR$/gulimall-coupon/pom.xml" />
+        <option value="$PROJECT_DIR$/gulimall-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/gulimall-member/pom.xml" />
+        <option value="$PROJECT_DIR$/gulimall-order/pom.xml" />
+        <option value="$PROJECT_DIR$/gulimall-product/pom.xml" />
+        <option value="$PROJECT_DIR$/gulimall-search/pom.xml" />
+        <option value="$PROJECT_DIR$/gulimall-thrid-party/pom.xml" />
+        <option value="$PROJECT_DIR$/gulimall-ware/pom.xml" />
+        <option value="$PROJECT_DIR$/renren-fast/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/gulimall-auth-server/pom.xml" />
+        <option value="$PROJECT_DIR$/gulimall-cart/pom.xml" />
+        <option value="$PROJECT_DIR$/gulimall-seckill/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+  <component name="SwUserDefinedSpecifications">
+    <option name="specTypeByUrl">
+      <map />
+    </option>
+  </component>
+</project>
