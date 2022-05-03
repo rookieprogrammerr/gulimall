@@ -17,6 +17,7 @@ import org.apache.commons.lang.StringUtils;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.stereotype.Service;
@@ -103,6 +104,26 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         return parentPath.toArray(new Long[parentPath.size()]);
     }
 
+    /**
+     * 1、每一个需要缓存的数据我们都来指定要放到哪个名字的缓存。【缓存的分区(按照业务类型来区分)】
+     * 2、@Cacheable({"category"})
+     *      代表当前方法的结果需要缓存，如果缓存中有，方法不用调用。
+     *      如果缓存中没有，会调用方法，最后将方法的结果放入缓存。
+     * 3、默认行为
+     *      1）、如果缓存中有，方法不用调用。
+     *      2）、key是默认自动生成：缓存的名字::SimpleKey []（自主生成的key值）
+     *      3）、缓存的value的值。默认使用jdk序列化机制，将序列化后的数据存入redis
+     *      4）、默认ttl的时间是-1；
+     *
+     *    自定义：
+     *      1）、指定生成的缓存使用的key    key属性指定，接收一个SpEl
+     *      2）、指定缓存的数据的存活时间    配置文件中修改ttl
+     *      3）、将数据保存为json格式
+     *              CacheAutoConfiguration
+     *              RedisCacheConfiguration
+     * @return
+     */
+    @Cacheable(value = {"category"}, key = "#root.method.name")
     @Override
     public List<CategoryEntity> getLevel1Categorys() {
         long l = System.currentTimeMillis();
