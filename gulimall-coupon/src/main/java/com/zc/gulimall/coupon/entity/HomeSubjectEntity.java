@@ -10,8 +10,8 @@ import lombok.Data;
 /**
  * 首页专题表【jd首页下面很多专题，每个专题链接新的页面，展示专题商品信息】
  * 
- * @author huanglin
- * @email 2465652971@qq.com
+ * @author zhaocan
+ * @email zc1872751113@gmail.com
  * @date 2020-07-16 15:15:16
  */
 @Data

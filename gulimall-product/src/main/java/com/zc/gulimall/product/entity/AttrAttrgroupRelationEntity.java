@@ -10,9 +10,9 @@ import lombok.Data;
 /**
  * 属性&属性分组关联
  * 
- * @author huanglin
- * @email 2465652971@qq.com
- * @date 2020-07-16 15:28:09
+ * @author zhaocan
+ * @email zc1872751113@gmail.com
+ * @date 2022-05-02 15:28:09
  */
 @Data
 @TableName("pms_attr_attrgroup_relation")

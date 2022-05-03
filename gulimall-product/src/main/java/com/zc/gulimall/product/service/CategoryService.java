@@ -11,9 +11,9 @@ import java.util.Map;
 /**
  * 商品三级分类
  *
- * @author huanglin
- * @email 2465652971@qq.com
- * @date 2020-07-16 15:28:09
+ * @author zhaocan
+ * @email zc1872751113@gmail.com
+ * @date 2022-05-02 15:28:09
  */
 public interface CategoryService extends IService<CategoryEntity> {
 
@@ -28,5 +28,11 @@ public interface CategoryService extends IService<CategoryEntity> {
     List<CategoryEntity> getLevel1Categorys();
 
     Map<String, List<Catelog2Vo>> getCatelogJson();
+
+    Map<String, List<Catelog2Vo>> getCatelogJsonFromDBWithRedissonLock();
+
+    Map<String, List<Catelog2Vo>> getCatelogJsonFromDBWithRedisLock();
+
+    Map<String, List<Catelog2Vo>> getCatelogJsonFromDBWithLocalLock();
 }
 
