@@ -65,6 +65,11 @@ public class CategoryBrandRelationServiceImpl extends ServiceImpl<CategoryBrandR
         baseMapper.insert(categoryBrandRelation);
     }
 
+    @Override
+    public void updateCategory(Long catId, String name) {
+        this.baseMapper.updateCategory(catId,name);
+    }
+
     /**
      * 根据catelogId获取品牌信息
      *

@@ -11,28 +11,50 @@ import java.util.Map;
 /**
  * 商品三级分类
  *
- * @author zhaocan
+ * @author zc
  * @email zc1872751113@gmail.com
- * @date 2022-05-02 15:28:09
+ * @date 2022-05-04 21:08:48
  */
 public interface CategoryService extends IService<CategoryEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
 
+    /**
+     * 以树形结构查询所有分类
+     *
+     * @return
+     */
     List<CategoryEntity> listWithTree();
 
-    void removeMenus(List<Long> asList);
+    /**
+     * 批量删除分类
+     *
+     * @param asList
+     */
+    void removeMenuByIds(List<Long> asList);
 
-    Long[] findCategoryPath(Long catelogId);
+    /**
+     * 找到catelogId的完整路径；
+     * [父/子/孙]
+     *
+     * @param catelogId
+     * @return
+     */
+    Long[] findCatalogPath(Long catelogId);
 
-    List<CategoryEntity> getLevel1Categorys();
+    void updateCascade(CategoryEntity category);
 
-    Map<String, List<Catelog2Vo>> getCatelogJson();
+    /**
+     * 查找一级分类，首页显示
+     *
+     * @return
+     */
+    List<CategoryEntity> getLevel1Categories();
 
-    Map<String, List<Catelog2Vo>> getCatelogJsonFromDBWithRedissonLock();
-
-    Map<String, List<Catelog2Vo>> getCatelogJsonFromDBWithRedisLock();
-
-    Map<String, List<Catelog2Vo>> getCatelogJsonFromDBWithLocalLock();
+    /**
+     * 查找二级、三级分类，首页显示
+     *
+     * @return
+     */
+    Map<String, List<Catelog2Vo>> getCatalogJson();
 }
-

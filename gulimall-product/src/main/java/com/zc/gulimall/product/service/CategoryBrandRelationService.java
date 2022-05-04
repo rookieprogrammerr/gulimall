@@ -23,6 +23,8 @@ public interface CategoryBrandRelationService extends IService<CategoryBrandRela
 
     void saveIdAndName(CategoryBrandRelationEntity categoryBrandRelation);
 
+    void updateCategory(Long catId, String name);
+
     List<BrandEntity> getBrandByCatlogId(Long catId);
 }
 
