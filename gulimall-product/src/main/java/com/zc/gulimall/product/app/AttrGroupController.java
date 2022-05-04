@@ -113,10 +113,12 @@ public class AttrGroupController {
     @GetMapping("/info/{attrGroupId}")
     public R info(@PathVariable("attrGroupId") Long attrGroupId) {
         AttrGroupEntity attrGroup = attrGroupService.getById(attrGroupId);
+
         Long catelogId = attrGroup.getCatelogId();
-        Long[] categoryPath = categoryService.findCategoryPath(catelogId);
-        attrGroup.setCatelogPath(categoryPath);
-        log.info("分组信息为==========" + attrGroup);
+        Long[] path = categoryService.findCatelogPath(catelogId);
+
+        attrGroup.setCatelogPath(path);
+
         return R.ok().put("attrGroup", attrGroup);
     }
 

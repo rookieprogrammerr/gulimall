@@ -40,7 +40,7 @@ public interface CategoryService extends IService<CategoryEntity> {
      * @param catelogId
      * @return
      */
-    Long[] findCatalogPath(Long catelogId);
+    Long[] findCatelogPath(Long catelogId);
 
     void updateCascade(CategoryEntity category);
 
@@ -49,12 +49,12 @@ public interface CategoryService extends IService<CategoryEntity> {
      *
      * @return
      */
-    List<CategoryEntity> getLevel1Categories();
+    List<CategoryEntity> getLevel1Categorys();
 
     /**
      * 查找二级、三级分类，首页显示
      *
      * @return
      */
-    Map<String, List<Catelog2Vo>> getCatalogJson();
+    Map<String, List<Catelog2Vo>> getCatelogJson();
 }
