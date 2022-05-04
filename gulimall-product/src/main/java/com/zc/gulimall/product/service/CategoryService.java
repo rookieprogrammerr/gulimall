@@ -31,7 +31,7 @@ public interface CategoryService extends IService<CategoryEntity> {
      *
      * @param asList
      */
-    void removeMenuByIds(List<Long> asList);
+    void removeMenus(List<Long> asList);
 
     /**
      * 找到catelogId的完整路径；
@@ -40,7 +40,7 @@ public interface CategoryService extends IService<CategoryEntity> {
      * @param catelogId
      * @return
      */
-    Long[] findCatelogPath(Long catelogId);
+    Long[] findCategoryPath(Long catelogId);
 
     void updateCascade(CategoryEntity category);
 
@@ -57,4 +57,12 @@ public interface CategoryService extends IService<CategoryEntity> {
      * @return
      */
     Map<String, List<Catelog2Vo>> getCatelogJson();
+
+    Map<String, List<Catelog2Vo>> getCatelogJson2();
+
+    Map<String, List<Catelog2Vo>> getCatelogJsonFromDBWithRedissonLock();
+
+    Map<String, List<Catelog2Vo>> getCatelogJsonFromDBWithRedisLock();
+
+    Map<String, List<Catelog2Vo>> getCatelogJsonFromDBWithLocalLock();
 }

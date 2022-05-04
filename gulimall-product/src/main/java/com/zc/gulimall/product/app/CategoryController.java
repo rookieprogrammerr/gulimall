@@ -81,7 +81,7 @@ public class CategoryController {
     public R delete(@RequestBody Long[] catIds) {
         //categoryService.removeByIds(Arrays.asList(catIds));
 
-        categoryService.removeMenuByIds(Arrays.asList(catIds));
+        categoryService.removeMenus(Arrays.asList(catIds));
         return R.ok();
     }
 }
