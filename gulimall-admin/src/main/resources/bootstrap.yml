@@ -1,0 +1,15 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: renren-fast
+  profiles:
+    active: dev
+    cloud:
+      nacos:
+        discovery:
+          server-addr: 121.196.198.98:8848
+        config:
+          server-addr: 121.196.198.98:8848
+          file-extension: yml

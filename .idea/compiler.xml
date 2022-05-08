@@ -8,9 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="gulimall-coupon" />
+        <module name="gulimall-admin" />
         <module name="gulimall-thrid-party" />
         <module name="gulimall-common" />
-        <module name="renren-fast" />
         <module name="gulimall-order" />
         <module name="gulimall-search" />
         <module name="gulimall-ware" />
@@ -23,10 +23,12 @@
       <module name="gulimall-auth-server" target="1.8" />
       <module name="gulimall-cart" target="1.8" />
       <module name="gulimall-seckill" target="1.8" />
+      <module name="renren-fast" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="gulimall-admin" options="-parameters" />
       <module name="gulimall-common" options="-parameters" />
       <module name="gulimall-coupon" options="-parameters" />
       <module name="gulimall-gateway" options="-parameters" />

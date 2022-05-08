@@ -22,7 +22,7 @@
         <module>gulimall-seckill</module>
         <module>gulimall-thrid-party</module>
         <module>gulimall-ware</module>
-        <module>renren-fast</module>
+        <module>gulimall-admin</module>
     </modules>
 
 </project>
