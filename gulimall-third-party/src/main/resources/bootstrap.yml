@@ -3,15 +3,15 @@ server:
 
 spring:
   application:
-    name: gulimall-thrid-party
+    name: gulimall-third-party
   profiles:
     active: dev
   cloud:
     nacos:
       discovery:
-        server-addr: 182.42.128.43:8848
+        server-addr: 192.168.124.128:8848
       config:
-        server-addr: 182.42.128.43:8848
+        server-addr: 192.168.124.128:8848
         ext-config[0]:
           data-id: gulimall-third-party-${spring.profiles.active}.yml
           group: DEFAULT_GROUP

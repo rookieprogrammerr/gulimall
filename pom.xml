@@ -20,7 +20,7 @@
         <module>gulimall-product</module>
         <module>gulimall-search</module>
         <module>gulimall-seckill</module>
-        <module>gulimall-thrid-party</module>
+        <module>gulimall-third-party</module>
         <module>gulimall-ware</module>
         <module>renren-fast</module>
     </modules>

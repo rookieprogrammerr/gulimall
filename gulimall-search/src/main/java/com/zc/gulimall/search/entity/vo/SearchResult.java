@@ -1,11 +1,15 @@
 package com.zc.gulimall.search.entity.vo;
 
 import com.zc.common.to.es.SkuEsModel;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class SearchResult {
 
     //  查询到的所有商品信息

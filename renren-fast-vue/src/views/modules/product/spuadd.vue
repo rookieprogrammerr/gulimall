@@ -458,13 +458,13 @@ export default {
         brandId: "",
         weight: "",
         publishStatus: 0,
-        decript: [], 
-        images: [], 
+        decript: [],
+        images: [],
         bounds: {
           buyBounds: 0,
           growBounds: 0
         },
-        baseAttrs: [], 
+        baseAttrs: [],
         skus: []
       };
     },
