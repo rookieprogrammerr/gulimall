@@ -46,6 +46,6 @@ public class SearchParam {
     //  按照属性进行筛选
     private List<String> attrs;
     //  页码
-    private Integer pageNum;
+    private Integer pageNum = 1;
 
 }
