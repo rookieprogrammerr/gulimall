@@ -10,6 +10,7 @@ public class MallSearchServiceImpl implements MallSearchService {
 
     @Override
     public SearchResult search(SearchParam searchParam) {
+        //  1、动态构建出查询需要的DSL语句
         return null;
     }
 }
