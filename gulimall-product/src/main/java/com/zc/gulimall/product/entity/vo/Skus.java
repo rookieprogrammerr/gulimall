@@ -19,7 +19,7 @@ public class Skus {
 
     private List<Attr> attr;
     private String skuName;
-    private String price;
+    private BigDecimal price;
     private String skuTitle;
     private String skuSubtitle;
     private List<Images> images;

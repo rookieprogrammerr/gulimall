@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.zc.gulimall</groupId>
-    <artifactId>gulimall-thrid-party</artifactId>
+    <artifactId>gulimall-third-party</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>gulimall-thrid-party</name>
+    <name>gulimall-third-party</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

@@ -1,4 +1,4 @@
-package com.zc.gulimall.thridparty;
+package com.zc.gulimall.thirdparty;
 
 import com.aliyun.oss.OSSClient;
 import org.junit.jupiter.api.Test;
