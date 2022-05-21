@@ -24,6 +24,8 @@ public class SearchResult {
     private Long total;
     //  总页码
     private Integer totalPages;
+    //  导航页码
+    private List<Integer> pageNavs;
     //  当前查询到的结果，所有涉及到的品牌
     private List<BrandVo> brands;
     //  当前查询到的结果，所有涉及到的所有分类
