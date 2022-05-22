@@ -765,6 +765,11 @@
                 <a href="/static/search/#">游戏手机</a>
             </div>
         </div>
+        <div class="JD_ipone_one c">
+            <!--      遍历面包屑功能      -->
+            <a th:href="${nav.getLink()}" th:each="nav:${result.getNavs()}"><span th:text="${nav.getNavName()}"></span>：<span th:text="${nav.getNavValue()}"></span> x</a>
+        </div>
+
         <i><img src="/static/search/image/right-@1x.png" alt=""></i>
     </div>
 </div>
@@ -1998,7 +2003,7 @@
     function searchProducts(name, value) {
         //  原来的页面
 
-        location.href = replaceAndAddParamVal(location.href, name, value);
+        location.href = replaceAndAddParamVal(location.href, name, value, true);
     }
 
     function searchByKeyword() {
@@ -2018,13 +2023,25 @@
         return false;
     })
 
-    function replaceAndAddParamVal(url, paramName, replaceVal) {
+    function replaceAndAddParamVal(url, paramName, replaceVal, forceAdd) {
         //  1、如果没有就添加，有就替换
         let oUrl = url.toString();
         if(oUrl.indexOf(paramName) != -1) {
-            let re = eval('/(' + paramName + '=)([^&]*)/gi');
-            let nUrl = oUrl.replace(re, paramName + "=" + replaceVal);
-            return nUrl;
+            if(forceAdd) {
+                let nUrl = "";
+                if (oUrl.indexOf("?") != -1) {
+                    nUrl = oUrl + "&" + paramName + "=" + replaceVal;
+                } else {
+                    nUrl = oUrl + "?" + paramName + "=" + replaceVal;
+                }
+
+                return nUrl;
+            } else {
+                let re = eval('/(' + paramName + '=)([^&]*)/gi');
+                let nUrl = oUrl.replace(re, paramName + "=" + replaceVal);
+                return nUrl;
+            }
+
         } else {
             let nUrl = "";
             if (oUrl.indexOf("?") != -1) {

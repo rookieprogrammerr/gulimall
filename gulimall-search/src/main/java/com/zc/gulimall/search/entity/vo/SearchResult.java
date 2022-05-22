@@ -33,7 +33,8 @@ public class SearchResult {
     //  当前查询到的结果，所有涉及到的所有属性
     private List<AttrVo> attrs;
 
-
+    //  面包屑导航数据
+    private List<NavVo> navs;
     //  ==============以上是返回给页面的所有信息===================
 
 }
