@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -34,7 +35,8 @@ public class SearchResult {
     private List<AttrVo> attrs;
 
     //  面包屑导航数据
-    private List<NavVo> navs;
+    private List<NavVo> navs = new ArrayList<>();
+    private List<Long> attrIds = new ArrayList<>();
     //  ==============以上是返回给页面的所有信息===================
 
 }

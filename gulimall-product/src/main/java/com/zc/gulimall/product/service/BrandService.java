@@ -19,5 +19,12 @@ public interface BrandService extends IService<BrandEntity> {
     PageUtils queryPage(Map<String, Object> params);
 
     void removeBrandAndRelation(List<Long> asList);
+
+    /**
+     * 根据id查询品牌信息
+     * @param brandIds
+     * @return
+     */
+    List<BrandEntity> getBrandsByIds(List<Long> brandIds);
 }
 

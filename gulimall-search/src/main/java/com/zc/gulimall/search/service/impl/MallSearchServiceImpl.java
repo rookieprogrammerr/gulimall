@@ -347,6 +347,7 @@ public class MallSearchServiceImpl implements MallSearchService {
                 String[] s = attr.split("_");
                 navVo.setNavValue(s[1]);
                 R r = productFeignService.attrInfo(Long.parseLong(s[0]));
+                result.getAttrIds().add(Long.parseLong(s[0]));
                 if(r.getCode() == 0) {
                     AttrResponseVo data = r.getData("attr", new TypeReference<AttrResponseVo>() {
                     });
@@ -357,21 +358,50 @@ public class MallSearchServiceImpl implements MallSearchService {
 
                 //  2、取消了这个面包屑之后，我们要跳转到哪个地方。将请求地址的url里面的当前条件置空
                 //拿到所有的查询条件，去掉当前的
-                String encode = null;
-                try {
-                    encode = URLEncoder.encode(attr, "UTF-8");
-                    encode = encode.replace("+", "%20"); //浏览器对空格编码和java不一样
-                } catch (UnsupportedEncodingException e) {
-                    throw new RuntimeException(e);
-                }
-                String replace = param.get_queryString().replace("&attrs=" + encode, "");
-                navVo.setLink("http://search.gulimall.com/list.html?" + replace);
+                String replace = replaceQueryString(param, attr, "attrs");
+                navVo.setLink(EsConstant.NAV_LINK + "?" + replace);
                 return navVo;
             }).collect(Collectors.toList());
 
             result.setNavs(navVos);
         }
 
+        //  品牌面包屑
+        if(!CollectionUtils.isEmpty(param.getBrandId())) {
+            List<NavVo> navs = result.getNavs();
+            NavVo navVo = new NavVo();
+
+            navVo.setNavName("品牌");
+            //TODO 远程查询所有品牌
+            R r = productFeignService.brandsInfos(param.getBrandId());
+            if(r.getCode() == 0) {
+                List<BrandEntity> brand = r.getData("brand", new TypeReference<List<BrandEntity>>(){});
+                StringBuffer stringBuffer = new StringBuffer();
+                String replace = "";
+                for (BrandEntity brandEntity : brand) {
+                    stringBuffer.append(brandEntity.getName() + ";");
+                    replace = replaceQueryString(param, brandEntity.getBrandId().toString(), "brandId");
+                }
+                navVo.setNavValue(stringBuffer.toString());
+                navVo.setLink(EsConstant.NAV_LINK + "?" + replace);
+            }
+
+            navs.add(navVo);
+        }
+
+        //TODO 分类：不需要导航取消
+
         return result;
+    }
+
+    private String replaceQueryString(SearchParam param, String value, String key) {
+        String encode = null;
+        try {
+            encode = URLEncoder.encode(value, "UTF-8");
+            encode = encode.replace("+", "%20"); //浏览器对空格编码和java不一样
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
+        return param.get_queryString().replace("&" + key + "=" + encode, "");
     }
 }

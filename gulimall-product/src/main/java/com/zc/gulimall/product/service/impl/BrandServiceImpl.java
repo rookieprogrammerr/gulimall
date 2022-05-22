@@ -46,4 +46,14 @@ public class BrandServiceImpl extends ServiceImpl<BrandDao, BrandEntity> impleme
         categoryBrandRelationDao.delete(new QueryWrapper<CategoryBrandRelationEntity>()
                 .in("brand_id", asList));
     }
+
+    /**
+     * 根据id查询品牌信息
+     * @param brandIds
+     * @return
+     */
+    @Override
+    public List<BrandEntity> getBrandsByIds(List<Long> brandIds) {
+        return baseMapper.selectList(new QueryWrapper<BrandEntity>().in("brand_id", brandIds));
+    }
 }
