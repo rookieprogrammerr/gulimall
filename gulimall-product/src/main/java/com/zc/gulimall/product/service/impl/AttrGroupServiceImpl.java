@@ -13,6 +13,8 @@ import com.zc.gulimall.product.entity.AttrGroupEntity;
 import com.zc.gulimall.product.entity.CategoryEntity;
 import com.zc.gulimall.product.entity.vo.AttrGroupAndAttrVo;
 import com.zc.gulimall.product.entity.vo.AttrGroupRelationVo;
+import com.zc.gulimall.product.entity.vo.SkuItemVo;
+import com.zc.gulimall.product.entity.vo.SpuItemBaseAttrGroupVo;
 import com.zc.gulimall.product.service.AttrGroupService;
 import com.zc.gulimall.product.service.AttrService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -189,5 +191,19 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
             attrVoList.add(attrGroupAndAttrVo);
         }
         return attrVoList;
+    }
+
+    /**
+     * 根据spuid获取所有的属性分组及属性值
+     *
+     * @param spuId
+     * @param catelogId
+     * @return
+     */
+    @Override
+    public List<SpuItemBaseAttrGroupVo> getAttrGroupWithAttrsBySpuId(Long spuId, Long catelogId) {
+        //1、查出当前spu对应的所有属性的分组信息以及当前分组下的所有属性对应的值
+        List<SpuItemBaseAttrGroupVo> vos = this.baseMapper.getAttrGroupWithAttrsBySpuId(spuId, catelogId);
+        return vos;
     }
 }

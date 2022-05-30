@@ -6,6 +6,8 @@ import com.zc.gulimall.product.entity.AttrGroupEntity;
 import com.zc.gulimall.product.entity.vo.AttrGroupAndAttrVo;
 import com.zc.gulimall.product.entity.vo.AttrGroupRelationVo;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zc.gulimall.product.entity.vo.SkuItemVo;
+import com.zc.gulimall.product.entity.vo.SpuItemBaseAttrGroupVo;
 
 import java.util.List;
 import java.util.Map;
@@ -30,5 +32,14 @@ public interface AttrGroupService extends IService<AttrGroupEntity> {
     PageUtils getNoRelation(Long attrgroupId, Map<String, Object> params);
 
     List<AttrGroupAndAttrVo> getGroupAndAttr(Long catelogId);
+
+    /**
+     * 根据spuid获取所有的属性分组及属性值
+     *
+     * @param spuId
+     * @param catelogId
+     * @return
+     */
+    List<SpuItemBaseAttrGroupVo> getAttrGroupWithAttrsBySpuId(Long spuId, Long catelogId);
 }
 
