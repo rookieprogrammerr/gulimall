@@ -11,5 +11,5 @@ public class SkuItemSaleAttrsVo {
     private Long attrId;
     private String attrName;
     //  获得的值以","分割（红色，白色，黑色）
-    private String attrValues;
+    private List<AttrValueWithSkuIdVo> attrValues;
 }

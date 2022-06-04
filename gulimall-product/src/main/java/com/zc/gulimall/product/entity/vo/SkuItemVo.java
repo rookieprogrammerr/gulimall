@@ -26,4 +26,6 @@ public class SkuItemVo {
     //5、获取spu的规格参数信息
     private List<SpuItemBaseAttrGroupVo> groupAttrs;
 
+    //6、是否有货
+    private boolean hasStock = true;
 }
