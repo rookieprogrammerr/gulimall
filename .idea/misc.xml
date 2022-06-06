@@ -16,11 +16,11 @@
         <option value="$PROJECT_DIR$/gulimall-ware/pom.xml" />
         <option value="$PROJECT_DIR$/renren-fast/pom.xml" />
         <option value="$PROJECT_DIR$/gulimall-third-party/pom.xml" />
+        <option value="$PROJECT_DIR$/gulimall-auth-server/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
-        <option value="$PROJECT_DIR$/gulimall-auth-server/pom.xml" />
         <option value="$PROJECT_DIR$/gulimall-cart/pom.xml" />
         <option value="$PROJECT_DIR$/gulimall-seckill/pom.xml" />
       </set>
