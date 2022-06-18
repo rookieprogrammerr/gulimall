@@ -140,6 +140,7 @@ public class LoginController {
         R r = memberFeignService.login(vo);
         if(r.getCode() == 0) {
             //登录成功，进入首页
+            // TODO 1、登录成功处理
             return "redirect:" + GlobalUrlConstant.INDEX_URL;
         }
 
