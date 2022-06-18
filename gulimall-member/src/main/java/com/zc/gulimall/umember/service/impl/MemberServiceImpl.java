@@ -7,6 +7,7 @@ import com.zc.gulimall.umember.exception.EMailExistException;
 import com.zc.gulimall.umember.exception.PhoneExistException;
 import com.zc.gulimall.umember.exception.UserNameExistException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -55,8 +56,15 @@ public class MemberServiceImpl extends ServiceImpl<MemberDao, MemberEntity> impl
         entity.setMobile(memberRegistVo.getPhone());
         entity.setUsername(memberRegistVo.getUserName());
 
-        entity.setPassword(memberRegistVo.getPassword());
+        //密码要进行加密存储
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encode = passwordEncoder.encode(memberRegistVo.getPassword());
 
+        entity.setPassword(encode);
+
+        //其他的默认信息
+
+        //保存
         this.baseMapper.insert(entity);
     }
 

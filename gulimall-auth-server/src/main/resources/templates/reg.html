@@ -5946,7 +5946,10 @@ Cookie</span>是由网页服务器存放在您的访问设备上的文本文件�
     </div>
 </header>
 <section>
-    <form action="/regist" method="post" class="one" type="application/json">
+    <form action="/regist" method="post" class="one">
+		<div class="tips" style="color: red" th:text="${errors!=null?(#maps.containsKey(errors, 'msg')?errors.msg:''):''}">
+
+		</div>
         <div class="register-box">
             <label class="username_label">用 户 名
                 <input maxlength="20" name="userName" type="text" placeholder="您的用户名和登录名">
@@ -6258,13 +6261,13 @@ Cookie</span>是由网页服务器存放在您的访问设备上的文本文件�
     })
 
     //倒计时
-    let num = 5;
+    let num = 60;
 
     function timeoutChangeStyle() {
         $("#sendCode").attr("class", "disabled");
         if (num == 0) {
             $("#sendCode").text("发送验证码");
-            num = 5;
+            num = 60;
             $("#sendCode").attr("class", "");
         } else {
             let str = num + "s 后再次发送";

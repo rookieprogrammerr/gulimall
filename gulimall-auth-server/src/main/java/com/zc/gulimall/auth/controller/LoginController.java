@@ -1,16 +1,17 @@
 package com.zc.gulimall.auth.controller;
 
+import com.alibaba.fastjson.TypeReference;
 import com.zc.common.constant.AuthServerConstant;
 import com.zc.common.constant.GlobalUrlConstant;
 import com.zc.common.exception.BizCodeEnum;
 import com.zc.common.utils.R;
 import com.zc.gulimall.auth.entity.vo.UserRegistVo;
+import com.zc.gulimall.auth.feign.MemberFeignService;
 import com.zc.gulimall.auth.feign.ThirdPartFeignService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +31,8 @@ public class LoginController {
     private ThirdPartFeignService thirdPartFeignService;
     @Autowired
     private StringRedisTemplate redisTemplate;
+    @Autowired
+    private MemberFeignService memberFeignService;
 
     /**
      * 发送一个请求直接跳转到一个页面。
@@ -45,7 +48,7 @@ public class LoginController {
 
         String redisCode = redisTemplate.opsForValue().get(AuthServerConstant.SMS_CODE_CACHE_PREFIX + phone);
         if(StringUtils.isNotEmpty(redisCode)) {
-            long l = Long.parseLong(redisCode.split("_")[2]);
+            long l = Long.parseLong(redisCode.split("_")[1]);
             if(System.currentTimeMillis() - l < 60000) {
                 //60秒内不能再发
                 return R.error(BizCodeEnum.VALID_SMS_CODE.getCode(), BizCodeEnum.VALID_SMS_CODE.getMsg());
@@ -53,10 +56,11 @@ public class LoginController {
         }
 
         //2、验证码的再次校验。redis。存的时候：key：phone，value：验证码
-        String code = UUID.randomUUID().toString().substring(0, 5) + "_" + System.currentTimeMillis();
+        String code = UUID.randomUUID().toString().substring(0, 5);
+        String substring = code + "_" + System.currentTimeMillis();
 
         //redis缓存验证码，防止同一个phone在60秒内再次发送验证码
-        redisTemplate.opsForValue().set(AuthServerConstant.SMS_CODE_CACHE_PREFIX + phone, code, 10, TimeUnit.MINUTES);
+        redisTemplate.opsForValue().set(AuthServerConstant.SMS_CODE_CACHE_PREFIX + phone, substring, 10, TimeUnit.MINUTES);
         thirdPartFeignService.sendCode(phone, code);
         return R.ok();
     }
@@ -90,7 +94,18 @@ public class LoginController {
                 //验证码通过，删除验证码.令牌机制
                 redisTemplate.delete(AuthServerConstant.SMS_CODE_CACHE_PREFIX + userRegistVo.getPhone());
                 //2、调用远程服务进行注册
+                R r = memberFeignService.regist(userRegistVo);
+                if(r.getCode() == 0) {
+                    //成功
+                    return "redirect:" + GlobalUrlConstant.AUTH_SERVER_URL + "/login.html";
+                } else {
+                    //失败
+                    HashMap<String, String> errors = new HashMap<>();
+                    errors.put("msg", r.getData(new TypeReference<String>(){}));
+                    redirectAttributes.addFlashAttribute("errors", errors);
 
+                    return "redirect:" + GlobalUrlConstant.AUTH_SERVER_URL + "/reg.html";
+                }
                 //删除验证码
             } else {
                 //验证码出错
@@ -100,7 +115,6 @@ public class LoginController {
                 //校验出错，转发到注册页
                 return "redirect:" + GlobalUrlConstant.AUTH_SERVER_URL + "/reg.html";
             }
-            return "redirect:" + GlobalUrlConstant.AUTH_SERVER_URL + "/reg.html";
         } else {
             //验证码出错
             Map<String, String> errors = new HashMap<>();

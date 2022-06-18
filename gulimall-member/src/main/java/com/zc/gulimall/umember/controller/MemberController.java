@@ -1,9 +1,12 @@
 package com.zc.gulimall.umember.controller;
 
+import com.zc.common.exception.BizCodeEnum;
 import com.zc.common.utils.PageUtils;
 import com.zc.common.utils.R;
 import com.zc.gulimall.umember.entity.MemberEntity;
 import com.zc.gulimall.umember.entity.vo.MemberRegistVo;
+import com.zc.gulimall.umember.exception.PhoneExistException;
+import com.zc.gulimall.umember.exception.UserNameExistException;
 import com.zc.gulimall.umember.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -84,8 +87,10 @@ public class MemberController {
     public R regist(@RequestBody MemberRegistVo memberRegistVo) {
         try {
             memberService.regist(memberRegistVo);
-        } catch (Exception e) {
-            return R.error(e.getMessage());
+        } catch (PhoneExistException e) {
+            return R.error(BizCodeEnum.PHONE_EXIST_EXCEPTION.getCode(), BizCodeEnum.PHONE_EXIST_EXCEPTION.getMsg());
+        } catch (UserNameExistException e) {
+            return R.error(BizCodeEnum.USER_EXIST_EXCEPTION.getCode(), BizCodeEnum.USER_EXIST_EXCEPTION.getMsg());
         }
 
         return R.ok();
