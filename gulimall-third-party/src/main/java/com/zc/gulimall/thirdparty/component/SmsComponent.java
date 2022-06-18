@@ -14,27 +14,26 @@ import java.util.Map;
 @Data
 @Component
 @Slf4j
-public class SmsConponent {
+public class SmsComponent {
 
     private String host;
     private String path;
-    private String skin;
-    private String sign;
+    private String templateId;
     private String appcode;
 
     public void sendSmsCode(String phone, String code) {
         String method = "POST";
 
-        Map<String, String> headers = new HashMap<String, String>();
+        Map<String, String> headers = new HashMap<>();
         //最后在header中的格式(中间是英文空格)为Authorization:APPCODE 83359fd73fe94948385f570e3c139105
         headers.put("Authorization", "APPCODE " + appcode);
         //根据API的要求，定义相对应的Content-Type
         headers.put("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-        Map<String, String> querys = new HashMap<String, String>();
-        Map<String, String> bodys = new HashMap<String, String>();
+        Map<String, String> querys = new HashMap<>();
+        Map<String, String> bodys = new HashMap<>();
         bodys.put("content", "code:" + code);
         bodys.put("phone_number", phone);
-        bodys.put("template_id", "TPL_0000");
+        bodys.put("template_id", templateId);
 
 
         try {

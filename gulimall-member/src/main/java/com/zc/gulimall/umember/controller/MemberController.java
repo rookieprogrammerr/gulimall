@@ -3,6 +3,7 @@ package com.zc.gulimall.umember.controller;
 import com.zc.common.utils.PageUtils;
 import com.zc.common.utils.R;
 import com.zc.gulimall.umember.entity.MemberEntity;
+import com.zc.gulimall.umember.entity.vo.MemberRegistVo;
 import com.zc.gulimall.umember.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -76,4 +77,17 @@ public class MemberController {
         return R.ok();
     }
 
+    /**
+     * 注册会员
+     */
+    @PostMapping("/register")
+    public R regist(@RequestBody MemberRegistVo memberRegistVo) {
+        try {
+            memberService.regist(memberRegistVo);
+        } catch (Exception e) {
+            return R.error(e.getMessage());
+        }
+
+        return R.ok();
+    }
 }

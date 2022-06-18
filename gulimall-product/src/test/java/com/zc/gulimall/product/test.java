@@ -3,7 +3,6 @@ package com.zc.gulimall.product;
 import com.zc.gulimall.product.dao.AttrGroupDao;
 import com.zc.gulimall.product.dao.SkuSaleAttrValueDao;
 import com.zc.gulimall.product.entity.vo.SkuItemSaleAttrsVo;
-import com.zc.gulimall.product.entity.vo.SkuItemVo;
 import com.zc.gulimall.product.entity.vo.SpuItemBaseAttrGroupVo;
 import org.junit.jupiter.api.Test;
 import org.redisson.api.RedissonClient;
