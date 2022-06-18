@@ -3,6 +3,7 @@ package com.zc.gulimall.umember.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.zc.common.utils.PageUtils;
 import com.zc.gulimall.umember.entity.MemberEntity;
+import com.zc.gulimall.umember.entity.vo.MemberLoginVo;
 import com.zc.gulimall.umember.entity.vo.MemberRegistVo;
 import com.zc.gulimall.umember.exception.EMailExistException;
 import com.zc.gulimall.umember.exception.PhoneExistException;
@@ -41,5 +42,12 @@ public interface MemberService extends IService<MemberEntity> {
      * 校验手机号是否唯一
      */
     void checkMobileUnique(String mobile) throws PhoneExistException;
+
+    /**
+     * 会员登录
+     * @param memberLoginVo
+     * @return
+     */
+    MemberEntity login(MemberLoginVo memberLoginVo);
 }
 

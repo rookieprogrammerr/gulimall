@@ -2,6 +2,7 @@ package com.zc.gulimall.umember.service.impl;
 
 import com.zc.gulimall.umember.dao.MemberLevelDao;
 import com.zc.gulimall.umember.entity.MemberLevelEntity;
+import com.zc.gulimall.umember.entity.vo.MemberLoginVo;
 import com.zc.gulimall.umember.entity.vo.MemberRegistVo;
 import com.zc.gulimall.umember.exception.EMailExistException;
 import com.zc.gulimall.umember.exception.PhoneExistException;
@@ -89,6 +90,37 @@ public class MemberServiceImpl extends ServiceImpl<MemberDao, MemberEntity> impl
         Integer count = this.baseMapper.selectCount(new QueryWrapper<MemberEntity>().eq("mobile", mobile));
         if(count > 0){
             throw new PhoneExistException();
+        }
+    }
+
+    /**
+     * 会员登陆
+     * @param memberLoginVo
+     * @return
+     */
+    @Override
+    public MemberEntity login(MemberLoginVo memberLoginVo) {
+        String loginacct = memberLoginVo.getLoginacct();
+        String password = memberLoginVo.getPassword();
+
+        //1、去数据库查询
+        MemberEntity entity = this.baseMapper.selectOne(new QueryWrapper<MemberEntity>().eq("username", loginacct)
+                .or().eq("mobile", loginacct));
+
+        if(entity == null) {
+            //登录失败
+            return null;
+        } else {
+            //获取数据库的password
+            String passwordDb = entity.getPassword();
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            //密码匹配
+            if (passwordEncoder.matches(password, passwordDb)) {
+                //密码正确，返回用户信息
+                return entity;
+            } else {
+                return null;
+            }
         }
     }
 

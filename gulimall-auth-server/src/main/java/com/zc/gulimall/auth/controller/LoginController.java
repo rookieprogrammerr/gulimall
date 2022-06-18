@@ -5,6 +5,7 @@ import com.zc.common.constant.AuthServerConstant;
 import com.zc.common.constant.GlobalUrlConstant;
 import com.zc.common.exception.BizCodeEnum;
 import com.zc.common.utils.R;
+import com.zc.gulimall.auth.entity.vo.UserLoginVo;
 import com.zc.gulimall.auth.entity.vo.UserRegistVo;
 import com.zc.gulimall.auth.feign.MemberFeignService;
 import com.zc.gulimall.auth.feign.ThirdPartFeignService;
@@ -66,7 +67,7 @@ public class LoginController {
     }
 
     /**
-     *
+     * 注册
      *  //TODO 重定向携带数据，利用session原理。将数据放在session中。只要跳到下一个页面取出数据后，session里面的数据就会删掉。
      *
      *  //TODO 1、分布式下的session问题；
@@ -101,7 +102,7 @@ public class LoginController {
                 } else {
                     //失败
                     HashMap<String, String> errors = new HashMap<>();
-                    errors.put("msg", r.getData(new TypeReference<String>(){}));
+                    errors.put("msg", r.getData("msg", new TypeReference<String>(){}));
                     redirectAttributes.addFlashAttribute("errors", errors);
 
                     return "redirect:" + GlobalUrlConstant.AUTH_SERVER_URL + "/reg.html";
@@ -126,5 +127,26 @@ public class LoginController {
 
         //注册成功回到首页，回到登录页
         //return "redirect:/login.html";
+    }
+
+    /**
+     * 登录
+     * @param vo
+     * @return
+     */
+    @PostMapping("/login")
+    public String login(UserLoginVo vo, RedirectAttributes redirectAttributes) {
+        //远程登录
+        R r = memberFeignService.login(vo);
+        if(r.getCode() == 0) {
+            //登录成功，进入首页
+            return "redirect:" + GlobalUrlConstant.INDEX_URL;
+        }
+
+        //登录失败
+        Map<String, String> error = new HashMap<>();
+        error.put("msg", r.getData("msg", new TypeReference<String>(){}));
+        redirectAttributes.addFlashAttribute("errors", error);
+        return "redirect:" + GlobalUrlConstant.AUTH_SERVER_URL + "/login.html";
     }
 }
