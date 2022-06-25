@@ -8,7 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="gulimall-coupon" />
-        <module name="gulimall-thrid-party" />
+        <module name="gulimall-third-party" />
         <module name="gulimall-common" />
         <module name="gulimall-auth-server" />
         <module name="renren-fast" />
@@ -23,7 +23,6 @@
     <bytecodeTargetLevel>
       <module name="gulimall-cart" target="1.8" />
       <module name="gulimall-seckill" target="1.8" />
-      <module name="gulimall-third-party" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -36,7 +35,6 @@
       <module name="gulimall-product" options="-parameters" />
       <module name="gulimall-search" options="-parameters" />
       <module name="gulimall-third-party" options="-parameters" />
-      <module name="gulimall-thrid-party" options="-parameters" />
       <module name="gulimall-ware" options="-parameters" />
       <module name="renren-fast" options="-parameters" />
     </option>

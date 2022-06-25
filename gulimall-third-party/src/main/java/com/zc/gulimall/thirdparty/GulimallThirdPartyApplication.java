@@ -7,9 +7,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @EnableDiscoveryClient
-public class GulimallThridPartyApplication {
+public class GulimallThirdPartyApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GulimallThridPartyApplication.class, args);
+        SpringApplication.run(GulimallThirdPartyApplication.class, args);
     }
 }
