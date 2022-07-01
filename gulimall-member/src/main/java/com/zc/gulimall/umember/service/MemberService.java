@@ -5,6 +5,7 @@ import com.zc.common.utils.PageUtils;
 import com.zc.gulimall.umember.entity.MemberEntity;
 import com.zc.gulimall.umember.entity.vo.MemberLoginVo;
 import com.zc.gulimall.umember.entity.vo.MemberRegistVo;
+import com.zc.gulimall.umember.entity.vo.SocialUser;
 import com.zc.gulimall.umember.exception.EMailExistException;
 import com.zc.gulimall.umember.exception.PhoneExistException;
 import com.zc.gulimall.umember.exception.UserNameExistException;
@@ -49,5 +50,12 @@ public interface MemberService extends IService<MemberEntity> {
      * @return
      */
     MemberEntity login(MemberLoginVo memberLoginVo);
+
+    /**
+     * 社交帐号登录
+     * @param socialUser
+     * @return
+     */
+    MemberEntity login(SocialUser socialUser) throws Exception;
 }
 

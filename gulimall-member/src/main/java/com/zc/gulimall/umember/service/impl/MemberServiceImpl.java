@@ -1,15 +1,23 @@
 package com.zc.gulimall.umember.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.zc.common.utils.HttpUtils;
 import com.zc.gulimall.umember.dao.MemberLevelDao;
 import com.zc.gulimall.umember.entity.MemberLevelEntity;
 import com.zc.gulimall.umember.entity.vo.MemberLoginVo;
 import com.zc.gulimall.umember.entity.vo.MemberRegistVo;
+import com.zc.gulimall.umember.entity.vo.SocialUser;
 import com.zc.gulimall.umember.exception.EMailExistException;
 import com.zc.gulimall.umember.exception.PhoneExistException;
 import com.zc.gulimall.umember.exception.UserNameExistException;
+import org.apache.http.HttpResponse;
+import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -121,6 +129,58 @@ public class MemberServiceImpl extends ServiceImpl<MemberDao, MemberEntity> impl
             } else {
                 return null;
             }
+        }
+    }
+
+    /**
+     * 社交账号登录
+     * @param socialUser
+     * @return
+     */
+    @Override
+    public MemberEntity login(SocialUser socialUser) throws Exception {
+        //登录与注册合并逻辑
+        String uid = socialUser.getUid();
+        //1、判断当前社交用户是否已经登录过系统
+        MemberEntity memberEntity = this.baseMapper.selectOne(new QueryWrapper<MemberEntity>().eq("social_uid", uid));
+        if(memberEntity != null) {
+            //用户已经注册
+            MemberEntity update = new MemberEntity();
+            update.setId(memberEntity.getId());
+            update.setAccessToken(socialUser.getAccess_token());
+            update.setExpiresIn(socialUser.getExpires_in());
+
+            this.baseMapper.updateById(update);
+
+            memberEntity.setAccessToken(socialUser.getAccess_token());
+            memberEntity.setExpiresIn(socialUser.getExpires_in());
+            return memberEntity;
+        } else {
+            //2、没有查到当前社交用户对应的记录我们就需要注册一个
+            MemberEntity regist = new MemberEntity();
+            try {
+                //3、查询当前社交用户的社交账号信息（昵称、性别）
+                Map<String, String> query = new HashMap<>();
+                query.put("accesss_token", socialUser.getAccess_token());
+                query.put("uid", uid);
+                HttpResponse response = HttpUtils.doGet("https://api/weibo.com", "/2/users/show.json", "get", new HashMap<String, String>(), query);
+                if(response.getStatusLine().getStatusCode() == 200) {
+                    //查询成功
+                    String json = EntityUtils.toString(response.getEntity());
+                    JSONObject jsonObject = JSON.parseObject(json, JSONObject.class);
+                    //昵称
+                    regist.setNickname(jsonObject.getString("name"));
+                    //性别
+                    regist.setGender("m".equals(jsonObject.getString("gender"))?1:0);
+                }
+            } catch (Exception e) {}
+
+            regist.setSocialUid(socialUser.getUid());
+            regist.setAccessToken(socialUser.getAccess_token());
+            regist.setExpiresIn(socialUser.getExpires_in());
+            this.baseMapper.insert(regist);
+
+            return regist;
         }
     }
 

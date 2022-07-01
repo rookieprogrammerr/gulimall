@@ -6,6 +6,7 @@ import com.zc.common.utils.R;
 import com.zc.gulimall.umember.entity.MemberEntity;
 import com.zc.gulimall.umember.entity.vo.MemberLoginVo;
 import com.zc.gulimall.umember.entity.vo.MemberRegistVo;
+import com.zc.gulimall.umember.entity.vo.SocialUser;
 import com.zc.gulimall.umember.exception.PhoneExistException;
 import com.zc.gulimall.umember.exception.UserNameExistException;
 import com.zc.gulimall.umember.service.MemberService;
@@ -107,6 +108,21 @@ public class MemberController {
         MemberEntity entity = memberService.login(memberLoginVo);
         if(entity != null) {
             return R.ok();
+        }
+
+        return R.error(BizCodeEnum.LOGINACCT_PASSWORD_INVAILD_EXCEPTION.getCode(), BizCodeEnum.LOGINACCT_PASSWORD_INVAILD_EXCEPTION.getMsg());
+    }
+
+    /**
+     * 社交登录
+     * @param socialUser
+     * @return
+     */
+    @PostMapping("/oauth/login")
+    public R oauthlogin(@RequestBody SocialUser socialUser) throws Exception {
+        MemberEntity entity = memberService.login(socialUser);
+        if(entity != null) {
+            return R.ok().setData(entity);
         }
 
         return R.error(BizCodeEnum.LOGINACCT_PASSWORD_INVAILD_EXCEPTION.getCode(), BizCodeEnum.LOGINACCT_PASSWORD_INVAILD_EXCEPTION.getMsg());
