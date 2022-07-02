@@ -53,7 +53,7 @@ public class OAuth2Controller {
         querys.put("code", code);
 
         //1、根据code换取accessToken；
-        HttpResponse response = HttpUtils.doPost("api.weibo.com", "/oauth2/access_token", "post", header, querys, body);
+        HttpResponse response = HttpUtils.doPost("https://api.weibo.com", "/oauth2/access_token", "post", header, querys, body);
 
         //2、处理
         if(response.getStatusLine().getStatusCode() == 200) {

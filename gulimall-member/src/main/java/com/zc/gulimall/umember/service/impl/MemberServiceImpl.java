@@ -161,9 +161,9 @@ public class MemberServiceImpl extends ServiceImpl<MemberDao, MemberEntity> impl
             try {
                 //3、查询当前社交用户的社交账号信息（昵称、性别）
                 Map<String, String> query = new HashMap<>();
-                query.put("accesss_token", socialUser.getAccess_token());
+                query.put("access_token", socialUser.getAccess_token());
                 query.put("uid", uid);
-                HttpResponse response = HttpUtils.doGet("https://api/weibo.com", "/2/users/show.json", "get", new HashMap<String, String>(), query);
+                HttpResponse response = HttpUtils.doGet("https://api.weibo.com", "/2/users/show.json", "get", new HashMap<String, String>(), query);
                 if(response.getStatusLine().getStatusCode() == 200) {
                     //查询成功
                     String json = EntityUtils.toString(response.getEntity());
@@ -172,6 +172,10 @@ public class MemberServiceImpl extends ServiceImpl<MemberDao, MemberEntity> impl
                     regist.setNickname(jsonObject.getString("name"));
                     //性别
                     regist.setGender("m".equals(jsonObject.getString("gender"))?1:0);
+                    //城市
+                    regist.setCity(jsonObject.getString("location"));
+                    //头像
+                    regist.setHeader(jsonObject.getString("profile_image_url"));
                 }
             } catch (Exception e) {}
 
