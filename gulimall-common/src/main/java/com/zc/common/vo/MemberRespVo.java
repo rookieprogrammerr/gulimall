@@ -1,13 +1,14 @@
-package com.zc.gulimall.auth.entity.vo;
+package com.zc.common.vo;
 
 import lombok.Data;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @ToString
-public class MemberRespVo {
+public class MemberRespVo implements Serializable {
     /**
      * id
      */

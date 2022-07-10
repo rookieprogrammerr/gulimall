@@ -3,6 +3,7 @@ package com.zc.gulimall.product.web;
 import com.zc.gulimall.product.entity.CategoryEntity;
 import com.zc.gulimall.product.entity.vo.Catelog2Vo;
 import com.zc.gulimall.product.service.CategoryService;
+import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -12,12 +13,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 @Controller
+@Slf4j
 public class IndexController {
 
     @Autowired
@@ -28,8 +34,7 @@ public class IndexController {
     private StringRedisTemplate redisTemplate;
 
     @GetMapping({"/", "/index.html"})
-    public String indexPage(Model model) {
-
+    public String indexPage(Model model, HttpServletRequest request, HttpSession session) {
         //TODO 1、查出所有的1级分类
         List<CategoryEntity> categoryEntityList = categoryService.getLevel1Categorys();
 

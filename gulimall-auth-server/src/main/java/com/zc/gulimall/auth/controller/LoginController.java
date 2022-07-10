@@ -5,6 +5,7 @@ import com.zc.common.constant.AuthServerConstant;
 import com.zc.common.constant.GlobalUrlConstant;
 import com.zc.common.exception.BizCodeEnum;
 import com.zc.common.utils.R;
+import com.zc.common.vo.MemberRespVo;
 import com.zc.gulimall.auth.entity.vo.UserLoginVo;
 import com.zc.gulimall.auth.entity.vo.UserRegistVo;
 import com.zc.gulimall.auth.feign.MemberFeignService;
@@ -18,6 +19,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
@@ -130,17 +132,34 @@ public class LoginController {
     }
 
     /**
+     *
+     * @return
+     */
+    @GetMapping("/login.html")
+    public String loginPage(HttpSession session) {
+        Object attribute = session.getAttribute(AuthServerConstant.LOGIN_USER);
+        if(attribute == null) {
+            //没登陆
+            return "login";
+        }
+        return "redirect:" + GlobalUrlConstant.INDEX_URL;
+    }
+
+    /**
      * 登录
      * @param vo
      * @return
      */
     @PostMapping("/login")
-    public String login(UserLoginVo vo, RedirectAttributes redirectAttributes) {
+    public String login(UserLoginVo vo, RedirectAttributes redirectAttributes, HttpSession session) {
         //远程登录
         R r = memberFeignService.login(vo);
         if(r.getCode() == 0) {
             //登录成功，进入首页
-            // TODO 1、登录成功处理
+            MemberRespVo data = r.getData("data", new TypeReference<MemberRespVo>() {
+            });
+            //将用户信息存入session
+            session.setAttribute(AuthServerConstant.LOGIN_USER, data);
             return "redirect:" + GlobalUrlConstant.INDEX_URL;
         }
 

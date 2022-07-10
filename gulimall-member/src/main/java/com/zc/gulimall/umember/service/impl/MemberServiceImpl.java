@@ -64,6 +64,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberDao, MemberEntity> impl
 
         entity.setMobile(memberRegistVo.getPhone());
         entity.setUsername(memberRegistVo.getUserName());
+        entity.setNickname(memberRegistVo.getUserName());
 
         //密码要进行加密存储
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
