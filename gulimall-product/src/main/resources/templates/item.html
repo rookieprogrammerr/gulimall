@@ -1340,6 +1340,7 @@
     $("#addToCartA").click(function () {
         let num = $("#numInput").val();
         let skuId = $(this).attr("skuId");
+        console.log(num);
         location.href = "http://cart.gulimall.com/addToCart?skuId=" + skuId + "&num=" + num;
         return false;
     })

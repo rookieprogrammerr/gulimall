@@ -51,8 +51,10 @@ public class Cart {
         //1、计算购物项总价
         if(!CollectionUtils.isEmpty(items)){
             for (CartItem item : items) {
-                BigDecimal totalPrice = item.getTotalPrice();
-                totalPrice = amount.add(totalPrice);
+                if(item.getCheck()) {
+                    BigDecimal totalPrice = item.getTotalPrice();
+                    amount = amount.add(totalPrice);
+                }
             }
         }
         //2、减去优惠总价
