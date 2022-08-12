@@ -3,6 +3,8 @@ package com.zc.gulimall.cart.service;
 import com.zc.gulimall.cart.entity.vo.Cart;
 import com.zc.gulimall.cart.entity.vo.CartItem;
 
+import java.util.List;
+
 public interface CartService {
     /**
      * 将商品添加到购物车
@@ -50,4 +52,10 @@ public interface CartService {
      * @param skuId
      */
     void deleteItem(Long skuId);
+
+    /**
+     * 获取用户购物车内选中的购物项
+     * @return
+     */
+    List<CartItem> getUserCartItems();
 }

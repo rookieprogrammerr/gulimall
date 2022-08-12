@@ -3,10 +3,13 @@ package com.zc.gulimall.ware.controller;
 import com.zc.common.utils.PageUtils;
 import com.zc.common.utils.R;
 import com.zc.gulimall.ware.entity.WareInfoEntity;
+import com.zc.gulimall.ware.entity.vo.FareVo;
 import com.zc.gulimall.ware.service.WareInfoService;
+import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -24,6 +27,16 @@ public class WareInfoController {
     @Autowired
     private WareInfoService wareInfoService;
 
+    /**
+     * 获取运费信息
+     * @param addrId
+     * @return
+     */
+    @GetMapping("/fare")
+    public R getFare(@RequestParam("addrId") Long addrId){
+        FareVo fare = wareInfoService.getFare(addrId);
+        return R.ok().setData(fare);
+    }
     /**
      * 列表
      */

@@ -1,5 +1,6 @@
 package com.zc.gulimall.search.feign;
 
+import com.zc.common.constant.GlobalServiceConstant;
 import com.zc.common.utils.R;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient("gulimall-product")
+@FeignClient(GlobalServiceConstant.PRODUCT_SERVICE)
 public interface ProductFeignService {
 
     /**

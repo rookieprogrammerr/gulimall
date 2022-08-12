@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
@@ -25,6 +26,15 @@ public class MemberReceiveAddressController {
     @Autowired
     private MemberReceiveAddressService memberReceiveAddressService;
 
+    /**
+     * 获取指定会员的所有收货地址
+     * @param memberId
+     * @return
+     */
+    @GetMapping("/{memberId}/addresses")
+    public List<MemberReceiveAddressEntity> getAddress(@PathVariable("memberId") Long memberId) {
+        return memberReceiveAddressService.getAddress(memberId);
+    }
     /**
      * 列表
      */

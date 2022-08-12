@@ -10,4 +10,5 @@ public class GlobalUrlConstant {
     public static final String SEARCH_SERVER_URL = "http://search.gulimall.com";
 
     public static final String CART_SERVER_URL = "http://cart.gulimall.com";
+    public static final String ORDER_SERVER_URL = "http://order.gulimall.com";
 }

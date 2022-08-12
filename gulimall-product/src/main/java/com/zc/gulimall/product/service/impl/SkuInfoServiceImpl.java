@@ -6,6 +6,7 @@ import com.zc.gulimall.product.dao.SkuInfoDao;
 import com.zc.gulimall.product.entity.SkuImagesEntity;
 import com.zc.gulimall.product.entity.SkuInfoEntity;
 import com.zc.gulimall.product.entity.SpuInfoDescEntity;
+import com.zc.gulimall.product.entity.SpuInfoEntity;
 import com.zc.gulimall.product.entity.vo.SkuItemSaleAttrsVo;
 import com.zc.gulimall.product.entity.vo.SkuItemVo;
 import com.zc.gulimall.product.entity.vo.SpuItemBaseAttrGroupVo;
@@ -159,5 +160,4 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoDao, SkuInfoEntity> i
         CompletableFuture.allOf(saleAttrFuture, descFuture, baseAttrFuture, imageFuture).get();
         return skuItemVo;
     }
-
 }
