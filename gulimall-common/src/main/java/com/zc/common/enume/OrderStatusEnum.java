@@ -1,4 +1,4 @@
-package com.zc.gulimall.order.enume;
+package com.zc.common.enume;
 
 public enum  OrderStatusEnum {
     CREATE_NEW(0,"待付款"),

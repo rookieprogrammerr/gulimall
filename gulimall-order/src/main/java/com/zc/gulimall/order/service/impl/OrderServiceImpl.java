@@ -3,19 +3,22 @@ package com.zc.gulimall.order.service.impl;
 import com.alibaba.fastjson.TypeReference;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.zc.common.exception.NoStockException;
+import com.zc.common.to.mq.OrderTo;
 import com.zc.common.utils.R;
 import com.zc.common.vo.MemberRespVo;
 import com.zc.gulimall.order.constant.OrderConstant;
 import com.zc.gulimall.order.entity.OrderItemEntity;
 import com.zc.gulimall.order.entity.to.OrderCreateTo;
 import com.zc.gulimall.order.entity.vo.*;
-import com.zc.gulimall.order.enume.OrderStatusEnum;
+import com.zc.common.enume.OrderStatusEnum;
 import com.zc.gulimall.order.feign.CartFeignService;
 import com.zc.gulimall.order.feign.MemberFeignService;
 import com.zc.gulimall.order.feign.ProductFeignService;
 import com.zc.gulimall.order.feign.WmsFeignService;
 import com.zc.gulimall.order.interceptor.LoginUserInterceptor;
 import com.zc.gulimall.order.service.OrderItemService;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
@@ -62,6 +65,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
     private StringRedisTemplate redisTemplate;
     @Autowired
     private ProductFeignService productFeignService;
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -136,6 +141,9 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
      * @param vo
      * @return
      */
+    //本地事务：在分布式系统，只能控制住自己的回滚，控制不了其他服务的回滚
+    //分布式事务：最大原因。网络问题+分布式机器。
+//    @GlobalTransactional  //高并发
     @Transactional
     @Override
     public SubmitOrderResponseVo submitOrder(OrderSubmitVo vo) {
@@ -163,7 +171,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
             BigDecimal payPrice = vo.getPayPrice();
             if(Math.abs(payAmount.subtract(payPrice).doubleValue()) < 0.01) {
                 //金额对比成功
-                //3、保存订单
+                //TODO 3、保存订单
                 saveOrder(order);
                 //4、锁定库存。只要有异常进行回滚订单数据
                 //订单号，所有订单项（skuId，skuName，num）
@@ -177,10 +185,18 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
                     return itemVo;
                 }).collect(Collectors.toList());
                 lockVo.setLocks(locks);
-                //TODO 远程锁库存
+                //TODO 4、远程锁库存
+
+                //为了保证高并发。库存服务自己回滚。可以发消息给库存服务；
+                //库存服务本身也可以使用自动解锁模式  消息队列
                 R r = wmsFeignService.orderLockStock(lockVo);
                 if(r.getCode() == 0) {
                     //锁定成功
+                    responseVo.setOrder(order.getOrder());
+
+//                    int i = 10/0;//订单回滚，库存不滚
+                    //TODO 订单创建成功发送消息给MQ
+                    rabbitTemplate.convertAndSend("order-event-exchange", "order.create.order", order.getOrder());
                     return responseVo;
                 } else {
                     //锁定失败
@@ -192,6 +208,38 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
                 responseVo.setCode(2);
                 return responseVo;
             }
+        }
+    }
+
+    /**
+     * 根据订单号查询订单信息
+     * @param orderSn
+     * @return
+     */
+    @Override
+    public OrderEntity getOrderByOrderSn(String orderSn) {
+        return this.getOne(new QueryWrapper<OrderEntity>().eq("order_sn", orderSn));
+    }
+
+    /**
+     * 关闭订单
+     * @param entity
+     */
+    @Override
+    public void closeOrder(OrderEntity entity) {
+        //查询当前这个订单的最新状态
+        OrderEntity orderEntity = getById(entity.getId());
+
+        if(entity.getStatus() == OrderStatusEnum.CREATE_NEW.getCode()) {
+            //关单
+            OrderEntity updateOrder = new OrderEntity();
+            updateOrder.setId(entity.getId());
+            updateOrder.setStatus(OrderStatusEnum.CANCLED.getCode());
+            updateById(updateOrder);
+            //发给MQ一个
+            OrderTo orderTo = new OrderTo();
+            BeanUtils.copyProperties(orderEntity, orderTo);
+            rabbitTemplate.convertAndSend("order-event-exchange", "order.release.other", orderTo);
         }
     }
 

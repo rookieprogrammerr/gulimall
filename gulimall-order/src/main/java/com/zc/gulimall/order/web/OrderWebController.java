@@ -56,7 +56,7 @@ public class OrderWebController {
                 redirectAttributes.addFlashAttribute("msg", msg);
                 return "redirect:" + GlobalUrlConstant.ORDER_SERVER_URL + "/toTrade";
             }
-        } catch (NoStockException e) {
+        } catch (RuntimeException e) {
             redirectAttributes.addFlashAttribute("msg", e.getMessage());
             return "redirect:" + GlobalUrlConstant.ORDER_SERVER_URL + "/toTrade";
         }

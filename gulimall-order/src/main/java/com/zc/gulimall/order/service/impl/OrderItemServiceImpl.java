@@ -54,7 +54,7 @@ public class OrderItemServiceImpl extends ServiceImpl<OrderItemDao, OrderItemEnt
      *      1）、订单服务启动多个；同一个消息只能有一个客户端收到
      *      2）、只有一个消息完全处理完，方法运行结束，我们就可以接收到下一个消息
      */
-//    @RabbitListener(queues = {"hello-java-queue"})
+    @RabbitListener(queues = {"hello-java-queue"})
     @RabbitHandler
     public void receiveMessage(Message message, OrderReturnReasonEntity content, Channel channel) throws InterruptedException {
         //{"id":1,"name":"哈哈","sort":null,"status":null,"createTime":1659858910520}

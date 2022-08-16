@@ -2,7 +2,6 @@ package com.zc.gulimall.product.service.impl;
 
 import com.alibaba.fastjson.TypeReference;
 import com.zc.common.constant.ProductConstant;
-import com.zc.common.exception.BizCodeEnum;
 import com.zc.common.to.SkuHasStockVO;
 import com.zc.common.to.SkuReductionTo;
 import com.zc.common.to.SpuBoundsTo;
@@ -22,11 +21,11 @@ import com.zc.gulimall.product.service.*;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -91,6 +90,8 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
      * //TODO 高级部分在完善
      * @param spuSaveVo
      */
+    //Seata AT 分布式事务
+    @GlobalTransactional
     @Transactional
     @Override
     public void saveSpuInfo(SpuSaveVo spuSaveVo) {

@@ -1,13 +1,12 @@
 package com.zc.gulimall.ware.controller;
 
 import com.zc.common.exception.BizCodeEnum;
+import com.zc.common.exception.NoStockException;
 import com.zc.common.to.SkuHasStockVO;
 import com.zc.common.utils.PageUtils;
 import com.zc.common.utils.R;
 import com.zc.gulimall.ware.entity.WareSkuEntity;
-import com.zc.gulimall.ware.entity.vo.LockStockResult;
 import com.zc.gulimall.ware.entity.vo.WareSkuLockVo;
-import com.zc.gulimall.ware.exception.NoStockException;
 import com.zc.gulimall.ware.service.WareSkuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
