@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8fa9cad9-43dd-40d2-989b-2acc766764b8" name="Changes" comment="创建订单" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$PROJECT_DIR$/../../Environment/apache-maven-3.8.5" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2C0rA4X8iVW4rXKTkuKXBcpvEne" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/project/gulimall/gulimall-order/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;726e6aa99d62a1eecaac6fa978702cbe&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.zc.gulimall.order.entity.to" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\project\gulimall\gulimall-order\src\main\resources" />
+      <recent name="F:\project\gulimall\gulimall-ware\src\main\resources" />
+      <recent name="F:\project\gulimall\gulimall-ware\src\main\java\com\zc\gulimall\ware\entity\vo" />
+      <recent name="F:\project\gulimall\gulimall-order\src\main\java\com\zc\gulimall\order\enum" />
+      <recent name="F:\project\gulimall\gulimall-order\src\main\java\com\zc\gulimall\order\config" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.zc.common.config" />
+      <recent name="com.zc.gulimall.ware.config" />
+      <recent name="com.zc.common.exception" />
+      <recent name="com.zc.gulimall.ware.entity.vo" />
+      <recent name="com.zc.gulimall.cart.config" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean package" />
+      <command value="mvn clean install" />
+      <command value="mvn clean" />
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.GulimallCartApplication">
+    <configuration name="GulimallOrderApplicationTests.createBinding" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gulimall-order" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zc.gulimall.order.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zc.gulimall.order" />
+      <option name="MAIN_CLASS_NAME" value="com.zc.gulimall.order.GulimallOrderApplicationTests" />
+      <option name="METHOD_NAME" value="createBinding" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GulimallOrderApplicationTests.createExchange" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gulimall-order" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zc.gulimall.order.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zc.gulimall.order" />
+      <option name="MAIN_CLASS_NAME" value="com.zc.gulimall.order.GulimallOrderApplicationTests" />
+      <option name="METHOD_NAME" value="createExchange" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GulimallOrderApplicationTests.createQueue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gulimall-order" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zc.gulimall.order.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zc.gulimall.order" />
+      <option name="MAIN_CLASS_NAME" value="com.zc.gulimall.order.GulimallOrderApplicationTests" />
+      <option name="METHOD_NAME" value="createQueue" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GulimallOrderApplicationTests.sendMessageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gulimall-order" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zc.gulimall.order.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zc.gulimall.order" />
+      <option name="MAIN_CLASS_NAME" value="com.zc.gulimall.order.GulimallOrderApplicationTests" />
+      <option name="METHOD_NAME" value="sendMessageTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GulimailAuthServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <module name="gulimall-auth-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zc.gulimall.auth.GulimailAuthServerApplication" />
+      <option name="VM_PARAMETERS" value="-Xmx100m" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GulimallCartApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="gulimall-cart" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zc.gulimall.cart.GulimallCartApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GulimallCouponApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="gulimall-coupon" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zc.gulimall.coupon.GulimallCouponApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GulimallGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="gulimall-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zc.gulimall.gateway.GulimallGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GulimallMemberApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="gulimall-member" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zc.gulimall.umember.GulimallMemberApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GulimallOrderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="gulimall-order" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zc.gulimall.order.GulimallOrderApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GulimallProductApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="gulimall-product" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zc.gulimall.product.GulimallProductApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GulimallSearchApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="gulimall-search" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zc.gulimall.search.GulimallSearchApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GulimallThirdPartyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="gulimall-third-party" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zc.gulimall.thirdparty.GulimallThirdPartyApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GulimallWareApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="gulimall-ware" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zc.gulimall.ware.GulimallWareApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zc.gulimall.ware.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RenrenApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="renren-fast" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="io.renren.RenrenApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.GulimallOrderApplicationTests.createBinding" />
+      <item itemvalue="JUnit.GulimallOrderApplicationTests.createExchange" />
+      <item itemvalue="JUnit.GulimallOrderApplicationTests.createQueue" />
+      <item itemvalue="JUnit.GulimallOrderApplicationTests.sendMessageTest" />
+      <item itemvalue="Spring Boot.GulimallThirdPartyApplication" />
+      <item itemvalue="Spring Boot.GulimailAuthServerApplication" />
+      <item itemvalue="Spring Boot.GulimallCartApplication" />
+      <item itemvalue="Spring Boot.GulimallCouponApplication" />
+      <item itemvalue="Spring Boot.GulimallGatewayApplication" />
+      <item itemvalue="Spring Boot.GulimallMemberApplication" />
+      <item itemvalue="Spring Boot.GulimallOrderApplication" />
+      <item itemvalue="Spring Boot.GulimallProductApplication" />
+      <item itemvalue="Spring Boot.GulimallSearchApplication" />
+      <item itemvalue="Spring Boot.RenrenApplication" />
+      <item itemvalue="Spring Boot.GulimallWareApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.GulimallWareApplication" />
+        <item itemvalue="JUnit.GulimallOrderApplicationTests.sendMessageTest" />
+        <item itemvalue="JUnit.GulimallOrderApplicationTests.createBinding" />
+        <item itemvalue="JUnit.GulimallOrderApplicationTests.createQueue" />
+        <item itemvalue="JUnit.GulimallOrderApplicationTests.createExchange" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8fa9cad9-43dd-40d2-989b-2acc766764b8" name="Changes" comment="" />
+      <created>1657950202167</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1657950202167</updated>
+      <workItem from="1657950204592" duration="1845000" />
+      <workItem from="1657952078612" duration="302000" />
+      <workItem from="1657952394482" duration="82000" />
+      <workItem from="1657952488746" duration="284000" />
+      <workItem from="1657952804205" duration="148000" />
+      <workItem from="1657952964457" duration="1711000" />
+      <workItem from="1657954822531" duration="11116000" />
+      <workItem from="1658124028263" duration="15000" />
+      <workItem from="1658745203726" duration="10000" />
+      <workItem from="1658823670887" duration="5000" />
+      <workItem from="1659071517371" duration="16657000" />
+      <workItem from="1659160959108" duration="10794000" />
+      <workItem from="1659319171800" duration="1830000" />
+      <workItem from="1659334004124" duration="7000" />
+      <workItem from="1659335303526" duration="4762000" />
+      <workItem from="1659413810560" duration="671000" />
+      <workItem from="1659423539863" duration="4000" />
+      <workItem from="1659507561026" duration="218000" />
+      <workItem from="1659512495736" duration="724000" />
+      <workItem from="1659678402057" duration="1220000" />
+      <workItem from="1659685947570" duration="720000" />
+      <workItem from="1659781248137" duration="5654000" />
+      <workItem from="1659858396793" duration="9282000" />
+      <workItem from="1659880333577" duration="8684000" />
+      <workItem from="1659931664185" duration="606000" />
+      <workItem from="1660023383587" duration="3201000" />
+      <workItem from="1660189557422" duration="20390000" />
+      <workItem from="1660288283560" duration="6000" />
+      <workItem from="1660300509086" duration="1026000" />
+      <workItem from="1660303910970" duration="15464000" />
+      <workItem from="1660361743432" duration="8326000" />
+      <workItem from="1660453759984" duration="14076000" />
+      <workItem from="1660621411466" duration="19705000" />
+    </task>
+    <task id="LOCAL-00001" summary="添加购物车">
+      <created>1659110242066</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1659110242066</updated>
+    </task>
+    <task id="LOCAL-00002" summary="完成购物车">
+      <created>1659172439596</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1659172439596</updated>
+    </task>
+    <task id="LOCAL-00003" summary="rabbitmq练习例子">
+      <created>1659868296514</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1659868296514</updated>
+    </task>
+    <task id="LOCAL-00004" summary="订单环境搭建">
+      <created>1659890618382</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1659890618382</updated>
+    </task>
+    <task id="LOCAL-00005" summary="订单环境搭建">
+      <created>1660023787095</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1660023787095</updated>
+    </task>
+    <task id="LOCAL-00006" summary="提交订单">
+      <created>1660321854367</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1660321854367</updated>
+    </task>
+    <task id="LOCAL-00007" summary="创建订单">
+      <created>1660659863802</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1660659863802</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="添加购物车" />
+    <MESSAGE value="完成购物车" />
+    <MESSAGE value="rabbitmq练习例子" />
+    <MESSAGE value="订单环境搭建" />
+    <MESSAGE value="提交订单" />
+    <MESSAGE value="创建订单" />
+    <option name="LAST_COMMIT_MESSAGE" value="创建订单" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/service/impl/MemberServiceImpl.java</url>
+          <line>170</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/service/impl/OrderServiceImpl.java</url>
+          <line>167</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/service/impl/OrderServiceImpl.java</url>
+          <line>250</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.zc.gulimall.cart.entity.vo.Cart" memberName="items" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>
