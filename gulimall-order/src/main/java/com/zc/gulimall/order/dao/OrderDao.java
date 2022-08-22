@@ -3,6 +3,7 @@ package com.zc.gulimall.order.dao;
 import com.zc.gulimall.order.entity.OrderEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 订单
@@ -13,5 +14,11 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface OrderDao extends BaseMapper<OrderEntity> {
-	
+
+    /**
+     * 修改订单状态
+     * @param orderSn
+     * @param status
+     */
+    void updateOrderStatus(@Param("orderSn") String orderSn, @Param("status") Integer status);
 }

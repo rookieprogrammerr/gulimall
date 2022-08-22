@@ -1,12 +1,12 @@
 package com.zc.gulimall.order.service;
 
+import com.alipay.api.AlipayApiException;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.zc.common.utils.PageUtils;
 import com.zc.gulimall.order.entity.OrderEntity;
-import com.zc.gulimall.order.entity.vo.OrderConfirmVo;
-import com.zc.gulimall.order.entity.vo.OrderSubmitVo;
-import com.zc.gulimall.order.entity.vo.SubmitOrderResponseVo;
+import com.zc.gulimall.order.entity.vo.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
@@ -45,5 +45,33 @@ public interface OrderService extends IService<OrderEntity> {
      * @param orderEntity
      */
     void closeOrder(OrderEntity orderEntity);
+
+    /**
+     * 获取当前订单的支付信息
+     * @param orderSn
+     * @return
+     */
+    PayVo getOrderPay(String orderSn);
+
+    /**
+     * 分页查询当前登录用户的所有订单
+     * @param params
+     * @return
+     */
+    PageUtils queryPageWithItem(Map<String, Object> params);
+
+    /**
+     * 处理支付宝的支付结果
+     * @param vo
+     * @return
+     */
+    String handlePayResult(PayAsyncVo vo);
+
+    /**
+     * 支付宝验签
+     * @param request
+     * @return
+     */
+    boolean rasCheckV1(HttpServletRequest request) throws AlipayApiException;
 }
 

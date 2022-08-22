@@ -4,7 +4,7 @@
 <mapper namespace="com.zc.gulimall.umember.dao.MemberStatisticsInfoDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.zc.gulimall.umember.entity.MemberStatisticsInfoEntity" id="memberStatisticsInfoMap">
+    <resultMap type="com.zc.gulimall.member.entity.MemberStatisticsInfoEntity" id="memberStatisticsInfoMap">
         <result property="id" column="id"/>
         <result property="memberId" column="member_id"/>
         <result property="consumeAmount" column="consume_amount"/>

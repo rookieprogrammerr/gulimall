@@ -4,7 +4,7 @@
 <mapper namespace="com.zc.gulimall.umember.dao.MemberCollectSpuDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.zc.gulimall.umember.entity.MemberCollectSpuEntity" id="memberCollectSpuMap">
+    <resultMap type="com.zc.gulimall.member.entity.MemberCollectSpuEntity" id="memberCollectSpuMap">
         <result property="id" column="id"/>
         <result property="memberId" column="member_id"/>
         <result property="spuId" column="spu_id"/>

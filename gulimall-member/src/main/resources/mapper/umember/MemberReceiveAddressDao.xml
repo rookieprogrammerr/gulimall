@@ -4,7 +4,7 @@
 <mapper namespace="com.zc.gulimall.umember.dao.MemberReceiveAddressDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.zc.gulimall.umember.entity.MemberReceiveAddressEntity" id="memberReceiveAddressMap">
+    <resultMap type="com.zc.gulimall.member.entity.MemberReceiveAddressEntity" id="memberReceiveAddressMap">
         <result property="id" column="id"/>
         <result property="memberId" column="member_id"/>
         <result property="name" column="name"/>

@@ -1,6 +1,5 @@
 package com.zc.gulimall.auth.config;
 
-import com.zc.common.constant.GlobalUrlConstant;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;

@@ -1,13 +1,17 @@
 package com.zc.gulimall.order.service.impl;
 
 import com.alibaba.fastjson.TypeReference;
+import com.alipay.api.AlipayApiException;
+import com.alipay.api.internal.util.AlipaySignature;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.zc.common.exception.NoStockException;
 import com.zc.common.to.mq.OrderTo;
 import com.zc.common.utils.R;
 import com.zc.common.vo.MemberRespVo;
+import com.zc.gulimall.order.config.AlipayTemplate;
 import com.zc.gulimall.order.constant.OrderConstant;
 import com.zc.gulimall.order.entity.OrderItemEntity;
+import com.zc.gulimall.order.entity.PaymentInfoEntity;
 import com.zc.gulimall.order.entity.to.OrderCreateTo;
 import com.zc.gulimall.order.entity.vo.*;
 import com.zc.common.enume.OrderStatusEnum;
@@ -17,6 +21,7 @@ import com.zc.gulimall.order.feign.ProductFeignService;
 import com.zc.gulimall.order.feign.WmsFeignService;
 import com.zc.gulimall.order.interceptor.LoginUserInterceptor;
 import com.zc.gulimall.order.service.OrderItemService;
+import com.zc.gulimall.order.service.PaymentInfoService;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +51,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
+import javax.servlet.http.HttpServletRequest;
+
 
 @Service("orderService")
 public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> implements OrderService {
@@ -67,6 +74,10 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
     private ProductFeignService productFeignService;
     @Autowired
     private RabbitTemplate rabbitTemplate;
+    @Autowired
+    private PaymentInfoService paymentInfoService;
+    @Autowired
+    private AlipayTemplate alipayTemplate;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -236,11 +247,114 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
             updateOrder.setId(entity.getId());
             updateOrder.setStatus(OrderStatusEnum.CANCLED.getCode());
             updateById(updateOrder);
-            //发给MQ一个
+
             OrderTo orderTo = new OrderTo();
             BeanUtils.copyProperties(orderEntity, orderTo);
-            rabbitTemplate.convertAndSend("order-event-exchange", "order.release.other", orderTo);
+            //发给MQ一个
+            try {
+                //TODO 保证消息一定会发送出去，每一个消息都可以做好日志记录（给数据库保存每一个消息的详细信息）。
+                //TODO 定期扫描数据库将失败的消息再发送一遍
+                rabbitTemplate.convertAndSend("order-event-exchange", "order.release.other", orderTo);
+            } catch (Exception e) {
+                //TODO 将没发送成功的消息进行重试发送。
+            }
+
         }
+    }
+
+    /**
+     * 获取当前订单的支付信息
+     * @param orderSn
+     * @return
+     */
+    @Override
+    public PayVo getOrderPay(String orderSn) {
+        PayVo payVo = new PayVo();
+        OrderEntity order = getOrderByOrderSn(orderSn);
+
+        BigDecimal decimal = order.getPayAmount().setScale(2, BigDecimal.ROUND_UP);
+        payVo.setTotal_amount(decimal.toString());//支付金额
+        payVo.setOut_trade_no(order.getOrderSn());//订单号
+
+        OrderItemEntity itemEntity = orderItemService.list(new QueryWrapper<OrderItemEntity>().eq("order_sn", orderSn)).get(0);
+        payVo.setSubject(itemEntity.getSkuName());//订单主题
+        payVo.setBody(itemEntity.getSkuAttrsVals());//订单备注
+
+        return payVo;
+    }
+
+    /**
+     * 分页查询当前登录用户的所有订单
+     * @param params
+     * @return
+     */
+    @Override
+    public PageUtils queryPageWithItem(Map<String, Object> params) {
+        MemberRespVo respVo = LoginUserInterceptor.loginUser.get();
+        IPage<OrderEntity> page = this.page(
+                new Query<OrderEntity>().getPage(params),
+                new QueryWrapper<OrderEntity>().eq("member_id", respVo.getId())
+                        .orderByDesc("id")
+        );
+
+        List<OrderEntity> order_sn = page.getRecords().stream().map(order -> {
+            List<OrderItemEntity> orderItemEntities = orderItemService.list(new QueryWrapper<OrderItemEntity>().eq("order_sn", order.getOrderSn()));
+            order.setItemEntities(orderItemEntities);
+            return order;
+        }).collect(Collectors.toList());
+
+        page.setRecords(order_sn);
+
+        return new PageUtils(page);
+    }
+
+    /**
+     * 处理支付宝的支付结果
+     * @param vo
+     * @return
+     */
+    @Override
+    public String handlePayResult(PayAsyncVo vo) {
+        //1、保存交易流水
+        PaymentInfoEntity infoEntity = new PaymentInfoEntity();
+        infoEntity.setAlipayTradeNo(vo.getTrade_no());
+        infoEntity.setOrderSn(vo.getOut_trade_no());
+        infoEntity.setPaymentStatus(vo.getTrade_status());
+        infoEntity.setCallbackTime(vo.getNotify_time());
+        infoEntity.setSubject(vo.getSubject());
+
+        paymentInfoService.save(infoEntity);
+
+        //2、修改订单的状态信息
+        if (vo.getTrade_status().equals("TRADE_SUCCESS") || vo.getTrade_status().equals("TRADE_FINISHED")) {
+            //支付成功
+            this.baseMapper.updateOrderStatus(vo.getOut_trade_no(), OrderStatusEnum.PAYED.getCode());
+        }
+        return "success";
+    }
+
+    /**
+     * 支付宝验签
+     * @param request
+     * @return
+     */
+    @Override
+    public boolean rasCheckV1(HttpServletRequest request) throws AlipayApiException {
+        Map<String, String> params = new HashMap<>();
+        Map<String, String[]> requestParams = request.getParameterMap();
+        for (Iterator<String> iter = requestParams.keySet().iterator(); iter.hasNext();) {
+            String name = iter.next();
+            String[] values = requestParams.get(name);
+            String valueStr = "";
+            for (int i = 0; i < values.length; i++) {
+                valueStr = (i == values.length - 1) ? valueStr + values[i]
+                        : valueStr + values[i] + ",";
+            }
+            //乱码解决，这段代码再出现乱码时使用
+            //valueStr = new String(valueStr.getBytes("ISO-8859-1"), "utf-8");
+            params.put(name, valueStr);
+        }
+        return AlipaySignature.rsaCheckV1(params, alipayTemplate.getAlipay_public_key(), alipayTemplate.getCharset(), alipayTemplate.getSign_type());
     }
 
     /**
@@ -323,6 +437,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
         OrderEntity entity = new OrderEntity();
         entity.setOrderSn(orderSn);
         entity.setMemberId(respVo.getId());
+        entity.setCreateTime(new Date());
 
         OrderSubmitVo orderSubmitVo = submitThreadLocal.get();
         //获取收货地址信息

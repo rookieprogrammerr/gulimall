@@ -4,7 +4,7 @@
 <mapper namespace="com.zc.gulimall.umember.dao.MemberCollectSubjectDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.zc.gulimall.umember.entity.MemberCollectSubjectEntity" id="memberCollectSubjectMap">
+    <resultMap type="com.zc.gulimall.member.entity.MemberCollectSubjectEntity" id="memberCollectSubjectMap">
         <result property="id" column="id"/>
         <result property="subjectId" column="subject_id"/>
         <result property="subjectName" column="subject_name"/>

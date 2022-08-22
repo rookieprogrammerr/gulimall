@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @FeignClient(GlobalServiceConstant.MEMBER_SERVICE)
 public interface MemberFeignService {
 
-    @RequestMapping("/member/memberreceiveaddress//info/{id}")
+    @RequestMapping("/member/memberreceiveaddress/info/{id}")
     R addrInfo(@PathVariable("id") Long id);
 }
