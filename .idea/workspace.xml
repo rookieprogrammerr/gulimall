@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8fa9cad9-43dd-40d2-989b-2acc766764b8" name="Changes" comment="完成支付">
+    <list default="true" id="8fa9cad9-43dd-40d2-989b-2acc766764b8" name="Changes" comment="秒杀业务完成">
       <change afterPath="$PROJECT_DIR$/gulimall-common/src/main/java/com/zc/common/to/mq/SeckillOrderTo.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/gulimall-coupon/src/test/java/com/zc/gulimall/coupon/GulimallCouponApplicationTests.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/listener/OrderSeckillListener.java" afterDir="false" />
@@ -392,7 +392,7 @@
       <workItem from="1661164807355" duration="8085000" />
       <workItem from="1661224345563" duration="26156000" />
       <workItem from="1661309652569" duration="1537000" />
-      <workItem from="1661397726999" duration="22109000" />
+      <workItem from="1661397726999" duration="22418000" />
     </task>
     <task id="LOCAL-00001" summary="添加购物车">
       <created>1659110242066</created>
@@ -457,7 +457,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661177803051</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="秒杀业务完成">
+      <created>1661441133898</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1661441133898</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,7 +489,8 @@
     <MESSAGE value="提交订单" />
     <MESSAGE value="创建订单" />
     <MESSAGE value="完成支付" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成支付" />
+    <MESSAGE value="秒杀业务完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="秒杀业务完成" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
