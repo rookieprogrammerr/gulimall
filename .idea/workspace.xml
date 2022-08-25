@@ -4,113 +4,55 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8fa9cad9-43dd-40d2-989b-2acc766764b8" name="Changes" comment="创建订单">
-      <change afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/config/GuliFeignConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/config/GulimallSessionConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/config/MemberWebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/config/MybatisPlusConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/feign/OrderFeignService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/interceptor/LoginUserInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/web/MemberWebController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-member/src/main/resources/templates/orderList.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/config/AlipayTemplate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/config/MybatisPlusConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/entity/vo/PayAsyncVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/entity/vo/PayVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/listener/OrderPayedListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/web/PayWebController.java" afterDir="false" />
+    <list default="true" id="8fa9cad9-43dd-40d2-989b-2acc766764b8" name="Changes" comment="完成支付">
+      <change afterPath="$PROJECT_DIR$/gulimall-common/src/main/java/com/zc/common/to/mq/SeckillOrderTo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-coupon/src/test/java/com/zc/gulimall/coupon/GulimallCouponApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/listener/OrderSeckillListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/zc/gulimall/product/entity/vo/SeckillInfoVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/zc/gulimall/product/feign/SeckillFeignService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/GulimallSeckillApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/config/GulimallSessionConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/config/MyRabbitConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/config/MyRedissonConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/config/ScheduledConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/config/SeckillWebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/constant/SeckillConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/controller/SeckillController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/entity/to/SeckillSkuRedisTo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/entity/vo/SeckillSessionsWithSkus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/entity/vo/SeckillSkuVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/entity/vo/SkuInfoVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/feign/CouponFeignService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/feign/ProductFeignService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/interceptor/LoginUserInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/scheduled/SeckillSkuScheduled.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/service/SeckillService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/service/impl/SeckillServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/resources/templates/success.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/test/java/com/zc/gulimall/seckill/GulimallSeckillApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-auth-server/src/main/java/com/zc/gulimall/auth/config/GulimallSessionConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-auth-server/src/main/java/com/zc/gulimall/auth/config/GulimallSessionConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-cart/src/main/resources/templates/success.html" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-cart/src/main/resources/templates/success.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-common/src/main/java/com/zc/common/utils/Query.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-common/src/main/java/com/zc/common/utils/Query.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-common/target/classes/com/zc/common/utils/Query.class" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-common/target/classes/com/zc/common/utils/Query.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/GulimallMemberApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/GulimallMemberApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/controller/GrowthChangeHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/controller/GrowthChangeHistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/controller/IntegrationChangeHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/controller/IntegrationChangeHistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/controller/MemberCollectSpuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/controller/MemberCollectSpuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/controller/MemberCollectSubjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/controller/MemberCollectSubjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/controller/MemberLevelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/controller/MemberLevelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/controller/MemberLoginLogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/controller/MemberLoginLogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/controller/MemberReceiveAddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/controller/MemberReceiveAddressController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/controller/MemberStatisticsInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/controller/MemberStatisticsInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/dao/GrowthChangeHistoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/dao/GrowthChangeHistoryDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/dao/IntegrationChangeHistoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/dao/IntegrationChangeHistoryDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/dao/MemberCollectSpuDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/dao/MemberCollectSpuDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/dao/MemberCollectSubjectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/dao/MemberCollectSubjectDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/dao/MemberDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/dao/MemberDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/dao/MemberLevelDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/dao/MemberLevelDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/dao/MemberLoginLogDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/dao/MemberLoginLogDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/dao/MemberReceiveAddressDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/dao/MemberReceiveAddressDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/dao/MemberStatisticsInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/dao/MemberStatisticsInfoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/entity/GrowthChangeHistoryEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/entity/GrowthChangeHistoryEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/entity/IntegrationChangeHistoryEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/entity/IntegrationChangeHistoryEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/entity/MemberCollectSpuEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/entity/MemberCollectSpuEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/entity/MemberCollectSubjectEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/entity/MemberCollectSubjectEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/entity/MemberEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/entity/MemberEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/entity/MemberLevelEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/entity/MemberLevelEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/entity/MemberLoginLogEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/entity/MemberLoginLogEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/entity/MemberReceiveAddressEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/entity/MemberReceiveAddressEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/entity/MemberStatisticsInfoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/entity/MemberStatisticsInfoEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/entity/vo/MemberLoginVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/entity/vo/MemberLoginVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/entity/vo/MemberRegistVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/entity/vo/MemberRegistVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/entity/vo/SocialUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/entity/vo/SocialUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/exception/EMailExistException.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/exception/EMailExistException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/exception/PhoneExistException.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/exception/PhoneExistException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/exception/UserNameExistException.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/exception/UserNameExistException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/service/GrowthChangeHistoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/service/GrowthChangeHistoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/service/IntegrationChangeHistoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/service/IntegrationChangeHistoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/service/MemberCollectSpuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/service/MemberCollectSpuService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/service/MemberCollectSubjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/service/MemberCollectSubjectService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/service/MemberLevelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/service/MemberLevelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/service/MemberLoginLogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/service/MemberLoginLogService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/service/MemberReceiveAddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/service/MemberReceiveAddressService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/service/MemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/service/MemberStatisticsInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/service/MemberStatisticsInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/service/impl/GrowthChangeHistoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/service/impl/GrowthChangeHistoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/service/impl/IntegrationChangeHistoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/service/impl/IntegrationChangeHistoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/service/impl/MemberCollectSpuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/service/impl/MemberCollectSpuServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/service/impl/MemberCollectSubjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/service/impl/MemberCollectSubjectServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/service/impl/MemberLevelServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/service/impl/MemberLevelServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/service/impl/MemberLoginLogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/service/impl/MemberLoginLogServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/service/impl/MemberReceiveAddressServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/service/impl/MemberReceiveAddressServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/service/impl/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/service/impl/MemberServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/umember/service/impl/MemberStatisticsInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/service/impl/MemberStatisticsInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/resources/mapper/umember/GrowthChangeHistoryDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/resources/mapper/umember/GrowthChangeHistoryDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/resources/mapper/umember/IntegrationChangeHistoryDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/resources/mapper/umember/IntegrationChangeHistoryDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/resources/mapper/umember/MemberCollectSpuDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/resources/mapper/umember/MemberCollectSpuDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/resources/mapper/umember/MemberCollectSubjectDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/resources/mapper/umember/MemberCollectSubjectDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/resources/mapper/umember/MemberDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/resources/mapper/umember/MemberDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/resources/mapper/umember/MemberLevelDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/resources/mapper/umember/MemberLevelDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/resources/mapper/umember/MemberLoginLogDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/resources/mapper/umember/MemberLoginLogDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/resources/mapper/umember/MemberReceiveAddressDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/resources/mapper/umember/MemberReceiveAddressDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/resources/mapper/umember/MemberStatisticsInfoDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/resources/mapper/umember/MemberStatisticsInfoDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/target/classes/mapper/umember/GrowthChangeHistoryDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/target/classes/mapper/umember/GrowthChangeHistoryDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/target/classes/mapper/umember/IntegrationChangeHistoryDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/target/classes/mapper/umember/IntegrationChangeHistoryDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/target/classes/mapper/umember/MemberCollectSpuDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/target/classes/mapper/umember/MemberCollectSpuDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/target/classes/mapper/umember/MemberCollectSubjectDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/target/classes/mapper/umember/MemberCollectSubjectDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/target/classes/mapper/umember/MemberDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/target/classes/mapper/umember/MemberDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/target/classes/mapper/umember/MemberLevelDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/target/classes/mapper/umember/MemberLevelDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/target/classes/mapper/umember/MemberLoginLogDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/target/classes/mapper/umember/MemberLoginLogDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/target/classes/mapper/umember/MemberReceiveAddressDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/target/classes/mapper/umember/MemberReceiveAddressDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/target/classes/mapper/umember/MemberStatisticsInfoDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/target/classes/mapper/umember/MemberStatisticsInfoDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/config/MyRabbitConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/config/MyRabbitConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/dao/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/dao/OrderDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/entity/OrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/entity/OrderEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/interceptor/GuliFeignConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/config/GuliFeignConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/interceptor/LoginUserInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/interceptor/LoginUserInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/listener/OrderCloseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/listener/OrderCloseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-common/src/main/java/com/zc/common/constant/GlobalServiceConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-common/src/main/java/com/zc/common/constant/GlobalServiceConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/controller/SeckillSessionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/controller/SeckillSessionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/entity/SeckillSessionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/entity/SeckillSessionEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/service/SeckillSessionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/service/SeckillSessionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/service/impl/SeckillSessionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/service/impl/SeckillSessionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/service/impl/SeckillSkuRelationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/service/impl/SeckillSkuRelationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/config/MyMQConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/config/MyMQConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/service/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/resources/mapper/order/OrderDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/resources/mapper/order/OrderDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/resources/templates/pay.html" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/resources/templates/pay.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/target/classes/templates/pay.html" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/target/classes/templates/pay.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-order/target/classes/mapper/order/OrderDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/target/classes/mapper/order/OrderDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/zc/gulimall/product/config/MyRedissonConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/zc/gulimall/product/config/MyRedissonConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/zc/gulimall/product/entity/vo/SkuItemVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/zc/gulimall/product/entity/vo/SkuItemVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/zc/gulimall/product/service/impl/SkuInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/zc/gulimall/product/service/impl/SkuInfoServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/resources/templates/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/resources/templates/item.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-product/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/target/classes/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-ware/src/main/java/com/zc/gulimall/ware/feign/MemberFeignService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-ware/src/main/java/com/zc/gulimall/ware/feign/MemberFeignService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/target/classes/templates/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/target/classes/templates/item.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,6 +81,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
   <component name="ProjectId" id="2C0rA4X8iVW4rXKTkuKXBcpvEne" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -155,19 +100,20 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "F:/project/gulimall/gulimall-order/src/main/java/com/zc/gulimall/order/entity/vo",
+    "last_opened_file_path": "F:/project/gulimall/gulimall-seckill/src/main/resources/templates",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
-    "project.structure.last.edited": "Global Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "File.Encoding",
-    "spring.configuration.checksum": "726e6aa99d62a1eecaac6fa978702cbe",
+    "spring.configuration.checksum": "281520aae170b52037e55626bd81cc3f",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -179,22 +125,22 @@
       <recent name="com.zc.gulimall.order.entity.to" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\project\gulimall\gulimall-seckill\src\main\resources\templates" />
       <recent name="F:\project\gulimall\gulimall-order\src\main\java\com\zc\gulimall\order\entity\vo" />
       <recent name="F:\project\gulimall\gulimall-member\src\main\resources\templates" />
       <recent name="F:\project\gulimall\gulimall-order\src\main\resources" />
       <recent name="F:\project\gulimall\gulimall-ware\src\main\resources" />
-      <recent name="F:\project\gulimall\gulimall-ware\src\main\java\com\zc\gulimall\ware\entity\vo" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\project\gulimall\gulimall-order\src\main\java\com\zc\gulimall\order\entity\vo" />
       <recent name="F:\project\gulimall\gulimall-order\src\main\java\com\zc\gulimall\order\config" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.zc.gulimall.seckill.interceptor" />
+      <recent name="com.zc.gulimall.seckill.config" />
       <recent name="com.zc.gulimall.order.config" />
       <recent name="com.zc.gulimall.member.config" />
       <recent name="com.zc.gulimall.umember.config" />
-      <recent name="com.zc.gulimall.umember.interceptor" />
-      <recent name="com.zc.common.config" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -211,7 +157,20 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.GulimallCartApplication">
+  <component name="RunManager" selected="Application.GulimallCouponApplicationTests">
+    <configuration name="GulimallCouponApplicationTests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zc.gulimall.coupon.GulimallCouponApplicationTests" />
+      <module name="gulimall-coupon" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zc.gulimall.coupon.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GulimallOrderApplicationTests.createBinding" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gulimall-order" />
       <extension name="coverage">
@@ -223,22 +182,6 @@
       <option name="PACKAGE_NAME" value="com.zc.gulimall.order" />
       <option name="MAIN_CLASS_NAME" value="com.zc.gulimall.order.GulimallOrderApplicationTests" />
       <option name="METHOD_NAME" value="createBinding" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GulimallOrderApplicationTests.createExchange" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gulimall-order" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.zc.gulimall.order.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.zc.gulimall.order" />
-      <option name="MAIN_CLASS_NAME" value="com.zc.gulimall.order.GulimallOrderApplicationTests" />
-      <option name="METHOD_NAME" value="createExchange" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -334,6 +277,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GulimallSeckillApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="gulimall-seckill" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zc.gulimall.seckill.GulimallSeckillApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GulimallThirdPartyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="gulimall-third-party" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.zc.gulimall.thirdparty.GulimallThirdPartyApplication" />
@@ -362,10 +312,11 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.GulimallCouponApplicationTests" />
       <item itemvalue="JUnit.GulimallOrderApplicationTests.createBinding" />
-      <item itemvalue="JUnit.GulimallOrderApplicationTests.createExchange" />
       <item itemvalue="JUnit.GulimallOrderApplicationTests.createQueue" />
       <item itemvalue="JUnit.GulimallOrderApplicationTests.sendMessageTest" />
+      <item itemvalue="Spring Boot.GulimallSeckillApplication" />
       <item itemvalue="Spring Boot.GulimallThirdPartyApplication" />
       <item itemvalue="Spring Boot.GulimailAuthServerApplication" />
       <item itemvalue="Spring Boot.GulimallCartApplication" />
@@ -381,10 +332,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.GulimallWareApplication" />
+        <item itemvalue="Application.GulimallCouponApplicationTests" />
         <item itemvalue="JUnit.GulimallOrderApplicationTests.sendMessageTest" />
         <item itemvalue="JUnit.GulimallOrderApplicationTests.createBinding" />
         <item itemvalue="JUnit.GulimallOrderApplicationTests.createQueue" />
-        <item itemvalue="JUnit.GulimallOrderApplicationTests.createExchange" />
       </list>
     </recent_temporary>
   </component>
@@ -438,7 +389,10 @@
       <workItem from="1660974744419" duration="13262000" />
       <workItem from="1661056556255" duration="3505000" />
       <workItem from="1661140738901" duration="8496000" />
-      <workItem from="1661164807355" duration="7401000" />
+      <workItem from="1661164807355" duration="8085000" />
+      <workItem from="1661224345563" duration="26156000" />
+      <workItem from="1661309652569" duration="1537000" />
+      <workItem from="1661397726999" duration="22109000" />
     </task>
     <task id="LOCAL-00001" summary="添加购物车">
       <created>1659110242066</created>
@@ -496,7 +450,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660660235900</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="完成支付">
+      <created>1661177803051</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1661177803051</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -520,7 +481,8 @@
     <MESSAGE value="订单环境搭建" />
     <MESSAGE value="提交订单" />
     <MESSAGE value="创建订单" />
-    <option name="LAST_COMMIT_MESSAGE" value="创建订单" />
+    <MESSAGE value="完成支付" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成支付" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -532,12 +494,12 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/service/impl/OrderServiceImpl.java</url>
-          <line>178</line>
+          <line>179</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/service/impl/OrderServiceImpl.java</url>
-          <line>364</line>
+          <line>391</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

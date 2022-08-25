@@ -10,4 +10,5 @@ public class GlobalServiceConstant {
     public static final String SEARCH_SERVICE = "gulimall-search";
     public static final String THIRD_PARTY_SERVICE = "gulimall-third-party";
     public static final String WARE_SERVICE = "gulimall-ware";
+    public static final String SECKILL_SERVICE = "gulimall-seckill";
 }

@@ -6,6 +6,7 @@ import com.alipay.api.internal.util.AlipaySignature;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.zc.common.exception.NoStockException;
 import com.zc.common.to.mq.OrderTo;
+import com.zc.common.to.mq.SeckillOrderTo;
 import com.zc.common.utils.R;
 import com.zc.common.vo.MemberRespVo;
 import com.zc.gulimall.order.config.AlipayTemplate;
@@ -355,6 +356,32 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
             params.put(name, valueStr);
         }
         return AlipaySignature.rsaCheckV1(params, alipayTemplate.getAlipay_public_key(), alipayTemplate.getCharset(), alipayTemplate.getSign_type());
+    }
+
+    /**
+     * 创建秒杀订单
+     * @param seckillOrderTo
+     */
+    @Override
+    public void createSeckillOrder(SeckillOrderTo seckillOrderTo) {
+        //TODO 保存订单信息
+        OrderEntity orderEntity = new OrderEntity();
+        orderEntity.setOrderSn(seckillOrderTo.getOrderSn());
+        orderEntity.setMemberId(seckillOrderTo.getMemberId());
+
+        orderEntity.setStatus(OrderStatusEnum.CREATE_NEW.getCode());
+        BigDecimal multiply = seckillOrderTo.getSeckillPrice().multiply(new BigDecimal(seckillOrderTo.getNum()));
+        orderEntity.setPayAmount(multiply);
+
+        save(orderEntity);
+
+        //TODO 保存订单项
+        OrderItemEntity itemEntity = new OrderItemEntity();
+        itemEntity.setOrderSn(seckillOrderTo.getOrderSn());
+        itemEntity.setRealAmount(multiply);
+        itemEntity.setSkuQuantity(seckillOrderTo.getNum());
+
+        orderItemService.save(itemEntity);
     }
 
     /**

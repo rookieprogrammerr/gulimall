@@ -2,6 +2,7 @@ package com.zc.gulimall.order.service;
 
 import com.alipay.api.AlipayApiException;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zc.common.to.mq.SeckillOrderTo;
 import com.zc.common.utils.PageUtils;
 import com.zc.gulimall.order.entity.OrderEntity;
 import com.zc.gulimall.order.entity.vo.*;
@@ -73,5 +74,11 @@ public interface OrderService extends IService<OrderEntity> {
      * @return
      */
     boolean rasCheckV1(HttpServletRequest request) throws AlipayApiException;
+
+    /**
+     * 创建秒杀订单
+     * @param seckillOrderTo
+     */
+    void createSeckillOrder(SeckillOrderTo seckillOrderTo);
 }
 
