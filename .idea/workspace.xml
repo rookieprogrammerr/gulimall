@@ -5,54 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fa9cad9-43dd-40d2-989b-2acc766764b8" name="Changes" comment="秒杀业务完成">
-      <change afterPath="$PROJECT_DIR$/gulimall-common/src/main/java/com/zc/common/to/mq/SeckillOrderTo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-coupon/src/test/java/com/zc/gulimall/coupon/GulimallCouponApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/listener/OrderSeckillListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/zc/gulimall/product/entity/vo/SeckillInfoVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/zc/gulimall/product/feign/SeckillFeignService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/GulimallSeckillApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/config/GulimallSessionConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/config/MyRabbitConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/config/MyRedissonConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/config/ScheduledConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/config/SeckillWebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/constant/SeckillConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/controller/SeckillController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/entity/to/SeckillSkuRedisTo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/entity/vo/SeckillSessionsWithSkus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/entity/vo/SeckillSkuVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/entity/vo/SkuInfoVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/feign/CouponFeignService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/feign/ProductFeignService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/interceptor/LoginUserInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/scheduled/SeckillSkuScheduled.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/service/SeckillService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/service/impl/SeckillServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/resources/templates/success.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/test/java/com/zc/gulimall/seckill/GulimallSeckillApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/config/SeckillSentinelConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-common/src/main/java/com/zc/common/constant/GlobalServiceConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-common/src/main/java/com/zc/common/constant/GlobalServiceConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/controller/SeckillSessionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/controller/SeckillSessionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/entity/SeckillSessionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/entity/SeckillSessionEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/service/SeckillSessionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/service/SeckillSessionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/service/impl/SeckillSessionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/service/impl/SeckillSessionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/service/impl/SeckillSkuRelationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/service/impl/SeckillSkuRelationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/config/MyMQConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/config/MyMQConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/target/classes/mapper/order/OrderDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/target/classes/mapper/order/OrderDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/zc/gulimall/product/config/MyRedissonConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/zc/gulimall/product/config/MyRedissonConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/zc/gulimall/product/entity/vo/SkuItemVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/zc/gulimall/product/entity/vo/SkuItemVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/zc/gulimall/product/service/impl/SkuInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/zc/gulimall/product/service/impl/SkuInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/resources/templates/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/resources/templates/item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/target/classes/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/target/classes/templates/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/target/classes/templates/item.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-common/src/main/java/com/zc/common/exception/BizCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-common/src/main/java/com/zc/common/exception/BizCodeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-common/target/classes/com/zc/common/exception/BizCodeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-common/target/classes/com/zc/common/exception/BizCodeEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/GulimallSeckillApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/GulimallSeckillApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/controller/SeckillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/controller/SeckillController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/renren-fast/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/renren-fast/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,31 +52,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "F:/project/gulimall/gulimall-seckill/src/main/resources/templates",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "File.Encoding",
-    "spring.configuration.checksum": "281520aae170b52037e55626bd81cc3f",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/project/gulimall/gulimall-seckill/src/main/resources/templates&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;281520aae170b52037e55626bd81cc3f&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -392,7 +352,10 @@
       <workItem from="1661164807355" duration="8085000" />
       <workItem from="1661224345563" duration="26156000" />
       <workItem from="1661309652569" duration="1537000" />
-      <workItem from="1661397726999" duration="22418000" />
+      <workItem from="1661397726999" duration="22467000" />
+      <workItem from="1661495409397" duration="1733000" />
+      <workItem from="1661501643579" duration="33000" />
+      <workItem from="1661502918796" duration="10065000" />
     </task>
     <task id="LOCAL-00001" summary="添加购物车">
       <created>1659110242066</created>
@@ -464,7 +427,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661441133898</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="秒杀业务完成">
+      <created>1661441146621</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1661441146621</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
