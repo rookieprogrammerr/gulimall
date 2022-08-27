@@ -1,5 +1,9 @@
 package com.zc.gulimall.seckill.service.impl;
 
+import com.alibaba.csp.sentinel.Entry;
+import com.alibaba.csp.sentinel.SphU;
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
@@ -14,6 +18,7 @@ import com.zc.gulimall.seckill.feign.CouponFeignService;
 import com.zc.gulimall.seckill.feign.ProductFeignService;
 import com.zc.gulimall.seckill.interceptor.LoginUserInterceptor;
 import com.zc.gulimall.seckill.service.SeckillService;
+import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RSemaphore;
 import org.redisson.api.RedissonClient;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -30,6 +35,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 public class SeckillServiceImpl implements SeckillService {
     @Autowired
@@ -69,101 +75,117 @@ public class SeckillServiceImpl implements SeckillService {
      * @param sessions
      */
     private void saveSessionInfos(List<SeckillSessionsWithSkus> sessions) {
-        sessions.stream().forEach(session -> {
-            long startTime = session.getStartTime().getTime();
-            long endTime = session.getEndTime().getTime();
-            //活动key
-            String key = SeckillConstant.SESSIONS_CACHE_PREFIX + startTime + "_" + endTime;
+        if(!CollectionUtils.isEmpty(sessions)) {
+            sessions.stream().forEach(session -> {
+                long startTime = session.getStartTime().getTime();
+                long endTime = session.getEndTime().getTime();
+                //活动key
+                String key = SeckillConstant.SESSIONS_CACHE_PREFIX + startTime + "_" + endTime;
 
-            //缓存活动信息
-            if(Boolean.FALSE.equals(redisTemplate.hasKey(key))) {
-                List<String> collect = session.getRelationSkus().stream().map(vo -> { return vo.getPromotionSessionId() + "_" + vo.getSkuId().toString();}).collect(Collectors.toList());
-                redisTemplate.opsForList().leftPushAll(key, collect);
-            }
+                //缓存活动信息
+                if(Boolean.FALSE.equals(redisTemplate.hasKey(key))) {
+                    List<String> collect = session.getRelationSkus().stream().map(vo -> { return vo.getPromotionSessionId() + "_" + vo.getSkuId().toString();}).collect(Collectors.toList());
+                    redisTemplate.opsForList().leftPushAll(key, collect);
+                }
 
-        });
+            });
+        }
     }
 
     /**
      * 缓存活动关联商品信息
      */
     private void saveSessionSkuInfos(List<SeckillSessionsWithSkus> sessions) {
-        sessions.stream().forEach(session -> {
-            //准备hash操作
-            BoundHashOperations<String, Object, Object> ops = redisTemplate.boundHashOps(SeckillConstant.SKUKILL_CACHE_PREFIX);
-            session.getRelationSkus().stream().forEach(seckillSkuVo -> {
-                String token = UUID.randomUUID().toString().replace("-", "");
+        if(!CollectionUtils.isEmpty(sessions)) {
+            sessions.stream().forEach(session -> {
+                //准备hash操作
+                BoundHashOperations<String, Object, Object> ops = redisTemplate.boundHashOps(SeckillConstant.SKUKILL_CACHE_PREFIX);
+                session.getRelationSkus().stream().forEach(seckillSkuVo -> {
+                    String token = UUID.randomUUID().toString().replace("-", "");
 
-                if(Boolean.FALSE.equals(ops.hasKey(seckillSkuVo.getPromotionSessionId() + "_" + seckillSkuVo.getSkuId().toString()))) {
-                    //缓存商品
-                    SeckillSkuRedisTo redisTo = new SeckillSkuRedisTo();
-                    //1、sku的基本数据
-                    R r = productFeignService.getSkuInfo(seckillSkuVo.getSkuId());
-                    if(r.getCode() == 0) {
-                        SkuInfoVo info = r.getData("skuInfo", new TypeReference<SkuInfoVo>() {
-                        });
-                        redisTo.setSkuInfo(info);
+                    if(Boolean.FALSE.equals(ops.hasKey(seckillSkuVo.getPromotionSessionId() + "_" + seckillSkuVo.getSkuId().toString()))) {
+                        //缓存商品
+                        SeckillSkuRedisTo redisTo = new SeckillSkuRedisTo();
+                        //1、sku的基本数据
+                        R r = productFeignService.getSkuInfo(seckillSkuVo.getSkuId());
+                        if(r.getCode() == 0) {
+                            SkuInfoVo info = r.getData("skuInfo", new TypeReference<SkuInfoVo>() {
+                            });
+                            redisTo.setSkuInfo(info);
+                        }
+
+                        //2、sku的秒杀信息
+                        BeanUtils.copyProperties(seckillSkuVo, redisTo);
+
+                        //3、设置上当前商品的秒杀时间信息
+                        redisTo.setStartTime(session.getStartTime().getTime());
+                        redisTo.setEndTime(session.getEndTime().getTime());
+
+                        //4、随机码:避免恶意秒杀
+                        redisTo.setRandomCode(token);
+
+                        //如果当前这个场次的商品的库存信息已经上架就不需要上架
+                        //5、使用库存作为分布式的信号量  限流
+                        RSemaphore semaphore = redissonClient.getSemaphore(SeckillConstant.SKU_STOCK_SEMAPHORE + token);
+                        //商品可以秒杀的数量作为信号量
+                        semaphore.trySetPermits(seckillSkuVo.getSeckillCount().intValue());
+
+                        String jsonString = JSON.toJSONString(redisTo);
+                        ops.put(seckillSkuVo.getPromotionSessionId() + "_" + seckillSkuVo.getSkuId(), jsonString);
                     }
-
-                    //2、sku的秒杀信息
-                    BeanUtils.copyProperties(seckillSkuVo, redisTo);
-
-                    //3、设置上当前商品的秒杀时间信息
-                    redisTo.setStartTime(session.getStartTime().getTime());
-                    redisTo.setEndTime(session.getEndTime().getTime());
-
-                    //4、随机码:避免恶意秒杀
-                    redisTo.setRandomCode(token);
-
-                    //如果当前这个场次的商品的库存信息已经上架就不需要上架
-                    //5、使用库存作为分布式的信号量  限流
-                    RSemaphore semaphore = redissonClient.getSemaphore(SeckillConstant.SKU_STOCK_SEMAPHORE + token);
-                    //商品可以秒杀的数量作为信号量
-                    semaphore.trySetPermits(seckillSkuVo.getSeckillCount().intValue());
-
-                    String jsonString = JSON.toJSONString(redisTo);
-                    ops.put(seckillSkuVo.getPromotionSessionId() + "_" + seckillSkuVo.getSkuId(), jsonString);
-                }
+                });
             });
-        });
+        }
     }
 
     /**
-     * 返回当前时间可以参与的秒杀商品信息
+     * getCurrentSeckillSkus()的限流方法
      * @return
      */
+    public List<SeckillSkuRedisTo> blockHandler(BlockException e) {
+        log.error("getCurrentSeckillSkus被限流了..,{}", e.getMessage());
+        return null;
+    }
+    /**
+     * 返回当前时间可以参与的秒杀商品信息
+     * blockHandler 函数会在原方法被限流/降级/系统保护的时候调用，而 fallback 函数会针对所有类型的异常。
+     * @return
+     */
+    @SentinelResource(value = "getCurrentSeckillSkusResource", blockHandler = "blockHandler")
     @Override
     public List<SeckillSkuRedisTo> getCurrentSeckillSkus() {
         //1、确定当前时间属于哪个秒杀场次
         long time = new Date().getTime();
 
-        Set<String> keys = redisTemplate.keys(SeckillConstant.SESSIONS_CACHE_PREFIX + "*");
-        if(!CollectionUtils.isEmpty(keys)) {
-            for (String key : keys) {
-                String[] s = key.replace(SeckillConstant.SESSIONS_CACHE_PREFIX, "").split("_");
-                long start = Long.parseLong(s[0]);
-                long end = Long.parseLong(s[1]);
-                if(time >= start && time <= end) {
-                    //当前时间符合当前场次
-                    //2、获取这个秒杀场次需要的所有商品信息
-                    List<String> range = redisTemplate.opsForList().range(key, 0, -1);
-                    BoundHashOperations<String, String, String> hashOps = redisTemplate.boundHashOps(SeckillConstant.SKUKILL_CACHE_PREFIX);
-                    List<String> list = hashOps.multiGet(range);
-                    if(!CollectionUtils.isEmpty(list)) {
-                        List<SeckillSkuRedisTo> collect = list.stream().map(item -> {
-                            SeckillSkuRedisTo redisTo = JSON.parseObject(item, SeckillSkuRedisTo.class);
+        try(Entry entry = SphU.entry("seckillSkus")) {
+            Set<String> keys = redisTemplate.keys(SeckillConstant.SESSIONS_CACHE_PREFIX + "*");
+            if(!CollectionUtils.isEmpty(keys)) {
+                for (String key : keys) {
+                    String[] s = key.replace(SeckillConstant.SESSIONS_CACHE_PREFIX, "").split("_");
+                    long start = Long.parseLong(s[0]);
+                    long end = Long.parseLong(s[1]);
+                    if(time >= start && time <= end) {
+                        //当前时间符合当前场次
+                        //2、获取这个秒杀场次需要的所有商品信息
+                        List<String> range = redisTemplate.opsForList().range(key, 0, -1);
+                        BoundHashOperations<String, String, String> hashOps = redisTemplate.boundHashOps(SeckillConstant.SKUKILL_CACHE_PREFIX);
+                        List<String> list = hashOps.multiGet(range);
+                        if(!CollectionUtils.isEmpty(list)) {
+                            List<SeckillSkuRedisTo> collect = list.stream().map(item -> {
+                                SeckillSkuRedisTo redisTo = JSON.parseObject(item, SeckillSkuRedisTo.class);
 //                            redisTo.setRandomCode(null);  //当前秒杀开始就需要随机码
-                            return redisTo;
-                        }).collect(Collectors.toList());
+                                return redisTo;
+                            }).collect(Collectors.toList());
 
-                        return collect;
+                            return collect;
+                        }
+                        break;
                     }
-                    break;
                 }
             }
+        } catch (BlockException e) {
+            log.error("资源被限流，{}", e.getMessage());
         }
-
-
 
         return null;
     }

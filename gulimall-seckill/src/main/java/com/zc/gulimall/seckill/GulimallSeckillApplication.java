@@ -15,6 +15,24 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  *
  * 	2、每一个微服务都导入actuator，并配置management.endpoints.web.exposure.include=*
  * 	3、自定义sentinel流控返回数据
+ *
+ * 	4、使用Sentinel来保护feign远程调用：熔断；
+ * 		1）、调用方的熔断保护：feign.sentinel.enabled=true
+ * 		2）、调用方手动指定远程服务的降级策略。远程服务被降级处理。触发我们的熔断回调方法
+ * 		3）、超大流量的时候，必须牺牲一些远程服务。在服务的提供方（远程服务）指定降级策略。
+ * 			提供方是在运行。但是不运行自己的业务逻辑，返回的是默认的熔断数据（限流）
+ *
+ * 	5、自定义受保护的资源
+ * 		1)、代码
+ * 			try(Entry entry = SphU.entry("seckillSkus")) {
+ * 				//业务逻辑
+ * 			}
+ * 		2)、注解
+ * 			@SentinelResource(value = "getCurrentSeckillSkusResource", blockHandler = "blockHandler")
+ *
+ * 		无论是1和2方式一定要配置被限流以后的默认返回
+ * 		url请求可以设置统一返回
+ * 			WebCallbackManager.setUrlBlockHandler(new UrlBlockHandler()
  */
 @EnableFeignClients
 @EnableDiscoveryClient
