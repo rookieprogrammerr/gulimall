@@ -25,6 +25,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="gulimall-auth-server" options="" />
       <module name="gulimall-cart" options="-parameters" />
       <module name="gulimall-common" options="-parameters" />
       <module name="gulimall-coupon" options="-parameters" />

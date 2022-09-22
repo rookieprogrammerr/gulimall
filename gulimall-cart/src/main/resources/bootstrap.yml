@@ -5,11 +5,11 @@ spring:
   application:
     name: gulimall-cart
   profiles:
-    active: dev
+    active: prod
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.124.129:8848
+        server-addr: nacos-service.gulimall:8848
       config:
-        server-addr: 192.168.124.129:8848
+        server-addr: nacos-service.gulimall:8848
         file-extension: yml
