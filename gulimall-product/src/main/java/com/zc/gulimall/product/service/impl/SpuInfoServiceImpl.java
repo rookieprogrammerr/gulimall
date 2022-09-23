@@ -91,7 +91,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
      * @param spuSaveVo
      */
     //Seata AT 分布式事务
-    @GlobalTransactional
+    //@GlobalTransactional
     @Transactional
     @Override
     public void saveSpuInfo(SpuSaveVo spuSaveVo) {

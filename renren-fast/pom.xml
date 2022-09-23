@@ -53,6 +53,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+            <version>2.2.3.RELEASE</version>
+        </dependency>
         <!--    公共依赖包    -->
         <dependency>
             <groupId>com.zc.gulimall</groupId>
