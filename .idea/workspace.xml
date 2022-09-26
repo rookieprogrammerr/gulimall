@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8fa9cad9-43dd-40d2-989b-2acc766764b8" name="Changes" comment="笔记">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="8fa9cad9-43dd-40d2-989b-2acc766764b8" name="Changes" comment="sonarqube">
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -370,7 +369,7 @@
       <workItem from="1663823462063" duration="8148000" />
       <workItem from="1663852585350" duration="7471000" />
       <workItem from="1663919570914" duration="4949000" />
-      <workItem from="1664176814630" duration="2271000" />
+      <workItem from="1664176814630" duration="2786000" />
     </task>
     <task id="LOCAL-00001" summary="添加购物车">
       <created>1659110242066</created>
@@ -491,7 +490,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663937574504</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="sonarqube">
+      <created>1664179557747</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1664179557747</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -521,7 +527,9 @@
     <MESSAGE value="部分引入zipkin" />
     <MESSAGE value="1" />
     <MESSAGE value="笔记" />
-    <option name="LAST_COMMIT_MESSAGE" value="笔记" />
+    <MESSAGE value="sonarqube指定" />
+    <MESSAGE value="sonarqube" />
+    <option name="LAST_COMMIT_MESSAGE" value="sonarqube" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

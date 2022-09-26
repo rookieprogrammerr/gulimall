@@ -10,8 +10,10 @@
     <packaging>pom</packaging>
 
     <!--  sonar.java.binaries  -->
-    <sonar.jacoco.reportPaths>${PWD}/./target/jacoco.exec</sonar.jacoco.reportPaths>
-    <sonar.groovy.binaries>target/classes</sonar.groovy.binaries>
+    <properties>
+        <sonar.jacoco.reportPaths>${PWD}/./target/jacoco.exec</sonar.jacoco.reportPaths>
+        <sonar.groovy.binaries>target/classes</sonar.groovy.binaries>
+    </properties>
 
     <modules>
         <module>gulimall-auth-server</module>
