@@ -5,76 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fa9cad9-43dd-40d2-989b-2acc766764b8" name="Changes" comment="笔记">
-      <change afterPath="$PROJECT_DIR$/gulimall-auth-server/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-auth-server/Jenkinsfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-auth-server/deploy/gulimall-auth-server-deploy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-auth-server/src/main/java/com/zc/gulimall/auth/config/SleuthSamplerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-cart/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-cart/deploy/gulimall-cart-deploy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-cart/src/main/java/com/zc/gulimall/cart/config/SleuthSamplerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-coupon/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-coupon/deploy/gulimall-coupon-deploy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/zc/gulimall/coupon/config/SleuthSamplerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-gateway/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-gateway/deploy/gulimall-gateway-deploy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-gateway/src/main/java/com/zc/gulimall/gateway/config/SleuthSamplerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-member/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-member/deploy/gulimall-member-deploy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/zc/gulimall/member/config/SleuthSamplerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-order/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-order/deploy/gulimall-order-deploy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/config/SleuthSamplerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-product/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-product/deploy/gulimall-product-deploy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/zc/gulimall/product/config/SleuthSamplerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-search/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-search/deploy/gulimall-search-deploy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-search/src/main/java/com/zc/gulimall/search/config/SleuthSamplerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/deploy/gulimall-seckill-deploy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/java/com/zc/gulimall/seckill/config/SleuthSamplerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-third-party/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-third-party/deploy/gulimall-third-party-deploy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-third-party/src/main/java/com/zc/gulimall/thirdparty/config/SleuthSamplerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-ware/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-ware/deploy/gulimall-ware-deploy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-ware/src/main/java/com/zc/gulimall/ware/config/SleuthSamplerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvn-settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/renren-fast/deploy/gulimall-admin.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/renren-fast/src/main/java/io/renren/config/SleuthSamplerConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-auth-server/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-auth-server/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-cart/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-cart/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-cart/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-cart/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-common/target/gulimall-common-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-common/target/gulimall-common-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-coupon/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-coupon/target/classes/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/target/classes/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-gateway/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-gateway/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/target/classes/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/target/classes/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/config/MySeataConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/zc/gulimall/order/config/MySeataConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/target/classes/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/target/classes/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/zc/gulimall/product/service/impl/SpuInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/zc/gulimall/product/service/impl/SpuInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/target/classes/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/target/classes/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-search/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-search/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-seckill/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-seckill/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-third-party/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-third-party/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-ware/src/main/java/com/zc/gulimall/ware/entity/vo/SkuHasStockVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-ware/src/main/java/com/zc/gulimall/ware/entity/vo/SkuHasStockVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-ware/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-ware/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-ware/target/classes/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-ware/target/classes/bootstrap.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/renren-fast/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/renren-fast/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/renren-fast/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/renren-fast/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/renren-fast/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/renren-fast/src/main/resources/bootstrap.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,9 +101,9 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean package" />
-      <command value="mvn clean" />
       <command value="mvn clean install" />
       <command value="mvn install -Dmaven.test.skip=true" />
+      <command value="mvn clean" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -437,7 +369,8 @@
       <workItem from="1663823409095" duration="12000" />
       <workItem from="1663823462063" duration="8148000" />
       <workItem from="1663852585350" duration="7471000" />
-      <workItem from="1663919570914" duration="4902000" />
+      <workItem from="1663919570914" duration="4949000" />
+      <workItem from="1664176814630" duration="2271000" />
     </task>
     <task id="LOCAL-00001" summary="添加购物车">
       <created>1659110242066</created>
@@ -551,7 +484,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663831730346</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="笔记">
+      <created>1663937574504</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1663937574504</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
