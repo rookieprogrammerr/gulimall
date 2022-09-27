@@ -4,24 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8fa9cad9-43dd-40d2-989b-2acc766764b8" name="Changes" comment="jenkinsfile获取项目名">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="8fa9cad9-43dd-40d2-989b-2acc766764b8" name="Changes" comment="部署文件修改">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-auth-server/deploy/gulimall-auth-server-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-auth-server/deploy/gulimall-auth-server-deploy.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-cart/deploy/gulimall-cart-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-cart/deploy/gulimall-cart-deploy.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-coupon/deploy/gulimall-coupon-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/deploy/gulimall-coupon-deploy.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-gateway/deploy/gulimall-gateway-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-gateway/deploy/gulimall-gateway-deploy.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/deploy/gulimall-member-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/deploy/gulimall-member-deploy.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/deploy/gulimall-order-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/deploy/gulimall-order-deploy.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/deploy/gulimall-product-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/deploy/gulimall-product-deploy.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-search/deploy/gulimall-search-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/deploy/gulimall-search-deploy.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-seckill/deploy/gulimall-seckill-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-seckill/deploy/gulimall-seckill-deploy.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-third-party/deploy/gulimall-third-party-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-third-party/deploy/gulimall-third-party-deploy.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-ware/deploy/gulimall-ware-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-ware/deploy/gulimall-ware-deploy.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/renren-fast/deploy/gulimall-admin.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/renren-fast/deploy/gulimall-admin.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -389,7 +374,7 @@
       <workItem from="1664263408477" duration="1565000" />
       <workItem from="1664267304686" duration="3988000" />
       <workItem from="1664274271973" duration="2653000" />
-      <workItem from="1664277423366" duration="4580000" />
+      <workItem from="1664277423366" duration="5730000" />
     </task>
     <task id="LOCAL-00001" summary="添加购物车">
       <created>1659110242066</created>
@@ -580,7 +565,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664269977955</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="部署文件修改">
+      <created>1664282608201</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1664282608202</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -617,7 +609,8 @@
     <MESSAGE value="k8s-deployment文件使用微服务最新镜像构建" />
     <MESSAGE value="jenkinsfile默认项目构建gateway" />
     <MESSAGE value="jenkinsfile获取项目名" />
-    <option name="LAST_COMMIT_MESSAGE" value="jenkinsfile获取项目名" />
+    <MESSAGE value="部署文件修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="部署文件修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
