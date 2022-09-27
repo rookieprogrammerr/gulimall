@@ -12,7 +12,7 @@ pipeline {
   }
   environment {
       DOCKER_CREDENTIAL_ID = 'dockerhub-id'
-      GITEE_CREDENTIAL_ID = 'gitee-id'
+      GITEE_CREDENTIAL_ID = 'gitee'
       KUBECONFIG_CREDENTIAL_ID = 'demo-kubeconfig'
       REGISTRY = 'docker.io'
       DOCKERHUB_NAMESPACE = 'crown233'
@@ -56,7 +56,7 @@ pipeline {
           sh 'cd $PROJECT_NAME && docker build -f Dockerfile -t $REGISTRY/$DOCKERHUB_NAMESPACE/$PROJECT_NAME:SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER .'
           withCredentials([usernamePassword(passwordVariable : 'DOCKER_PASSWORD' ,usernameVariable : 'DOCKER_USERNAME' ,credentialsId : "$DOCKER_CREDENTIAL_ID" ,)]) {
               sh 'echo "$DOCKER_PASSWORD" | docker login $REGISTRY -u "$DOCKER_USERNAME" --password-stdin'
-              sh 'docker tag  $REGISTRY/$DOCKERHUB_NAMESPACE/$PROJECT_NAME:SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER $REGISTRY/$DOCKERHUB_NAMESPACE/$APP_NAME:latest '
+              sh 'docker tag  $REGISTRY/$DOCKERHUB_NAMESPACE/$PROJECT_NAME:SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER $REGISTRY/$DOCKERHUB_NAMESPACE/$PROJECT_NAME:latest '
               sh 'docker push  $REGISTRY/$DOCKERHUB_NAMESPACE/$PROJECT_NAME:latest '
           }
         }
@@ -70,7 +70,7 @@ pipeline {
       }
     }
 
-    stage('push with tag'){
+    stage('版本发布'){
       when{
         expression{
           return params.PROJECT_VERSION =~ /v.*/

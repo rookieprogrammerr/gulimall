@@ -19,7 +19,7 @@ spec:
         - name: gulimall-third-party
           image: $REGISTRY/$DOCKERHUB_NAMESPACE/$PROJECT_NAME:latest
           ports:
-              containerPort: 8080
+            - containerPort: 8080
               protocol: TCP
           resources:
             limits:
